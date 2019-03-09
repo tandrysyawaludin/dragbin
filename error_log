@@ -1,0 +1,15 @@
+[28-Feb-2019 17:00:04 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/dragbinc/public_html/application/views/welcome_message.php on line 8
+[03-Mar-2019 12:40:26 UTC] PHP Fatal error:  Call to a member function set_userdata() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 65
+[03-Mar-2019 14:20:00 UTC] PHP Fatal error:  Call to a member function data() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 35
+[03-Mar-2019 14:20:20 UTC] PHP Fatal error:  Call to a member function data() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 35
+[03-Mar-2019 15:43:32 UTC] PHP Fatal error:  Call to a member function set_userdata() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 48
+[03-Mar-2019 15:44:01 UTC] PHP Fatal error:  Call to a member function set_userdata() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 48
+[03-Mar-2019 15:51:25 UTC] PHP Fatal error:  Call to a member function set_userdata() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 49
+[06-Mar-2019 00:04:23 UTC] PHP Fatal error:  Call to a member function create() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 107
+[06-Mar-2019 00:05:58 UTC] PHP Fatal error:  Call to a member function insert() on null in /home/dragbinc/public_html/application/models/User.php on line 7
+[07-Mar-2019 02:38:00 UTC] PHP Fatal error:  Call to a member function insert() on null in /home/dragbinc/public_html/application/models/User.php on line 7
+[07-Mar-2019 02:42:28 UTC] PHP Fatal error:  Call to a member function insert() on null in /home/dragbinc/public_html/application/models/User.php on line 9
+[07-Mar-2019 02:45:44 UTC] PHP Fatal error:  Call to a member function insert() on null in /home/dragbinc/public_html/application/models/User.php on line 9
+[07-Mar-2019 02:46:52 UTC] PHP Fatal error:  Call to a member function insert() on null in /home/dragbinc/public_html/application/models/User.php on line 9
+[07-Mar-2019 04:56:13 UTC] PHP Fatal error:  Call to a member function verify_email() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 154
+[07-Mar-2019 04:56:43 UTC] PHP Fatal error:  Call to a member function display_errors() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 46

@@ -1,0 +1,11 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+RewriteEngine On
+RewriteCond %{HTTPS} !on
+RewriteCond %{REQUEST_URI} !^/[0-9]+..+.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/.well-known/pki-validation/[A-F0-9]{32}.txt(?:\ Comodo\ DCV)?$
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^dragbin\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.dragbin\.com$
+RewriteRule ^/?$ "https\:\/\/www\.dragbin\.com\/" [R=301,L]
