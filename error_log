@@ -13,3 +13,66 @@
 [07-Mar-2019 02:46:52 UTC] PHP Fatal error:  Call to a member function insert() on null in /home/dragbinc/public_html/application/models/User.php on line 9
 [07-Mar-2019 04:56:13 UTC] PHP Fatal error:  Call to a member function verify_email() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 154
 [07-Mar-2019 04:56:43 UTC] PHP Fatal error:  Call to a member function display_errors() on null in /home/dragbinc/public_html/application/controllers/Signup.php on line 46
+[10-Mar-2019 15:20:42 UTC] PHP Fatal error:  Access level to SignUp::__construct() must be public (as in class CI_Controller) in /home/dragbinc/public_html/application/controllers/Signup.php on line 163
+[10-Mar-2019 16:02:46 UTC] PHP Fatal error:  Class 'MX_Controller' not found in /home/dragbinc/public_html/application/controllers/Signup.php on line 4
+[10-Mar-2019 16:27:28 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 16:27:45 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 16:27:51 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 16:28:00 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 16:28:08 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 16:28:10 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 16:28:34 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 16:32:58 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 16:33:11 UTC] PHP Fatal error:  Call to a member function halo() on null in /home/dragbinc/public_html/application/controllers/Testsignup.php on line 13
+[10-Mar-2019 17:09:51 UTC] PHP Fatal error:  Uncaught Error: Class 'TestCase' not found in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php:3
+Stack trace:
+#0 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(59): include_once()
+#1 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(47): PHPUnit\Util\FileLoader::load('/home/dragbinc/...')
+#2 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/StandardTestSuiteLoader.php(40): PHPUnit\Util\FileLoader::checkAndLoad('/home/dragbinc/...')
+#3 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(131): PHPUnit\Runner\StandardTestSuiteLoader->load('application/tes...', '/home/dragbinc/...')
+#4 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(78): PHPUnit\Runner\BaseTestRunner->loadSuiteClass('application/tes...', '/home/dragbinc/...')
+#5 phar:///home/dragbinc/public_html/phpunit/phpunit/TextUI/Command.php(185): PHPUnit\Runner\BaseTestRunner->getTest('application/tes...', '/home/dragbinc/...', Array)
+ in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php on line 3
+[10-Mar-2019 17:09:54 UTC] PHP Fatal error:  Uncaught Error: Class 'TestCase' not found in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php:3
+Stack trace:
+#0 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(59): include_once()
+#1 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(47): PHPUnit\Util\FileLoader::load('/home/dragbinc/...')
+#2 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/StandardTestSuiteLoader.php(40): PHPUnit\Util\FileLoader::checkAndLoad('/home/dragbinc/...')
+#3 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(131): PHPUnit\Runner\StandardTestSuiteLoader->load('application/tes...', '/home/dragbinc/...')
+#4 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(78): PHPUnit\Runner\BaseTestRunner->loadSuiteClass('application/tes...', '/home/dragbinc/...')
+#5 phar:///home/dragbinc/public_html/phpunit/phpunit/TextUI/Command.php(185): PHPUnit\Runner\BaseTestRunner->getTest('application/tes...', '/home/dragbinc/...', Array)
+ in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php on line 3
+[10-Mar-2019 17:09:56 UTC] PHP Fatal error:  Uncaught Error: Class 'TestCase' not found in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php:3
+Stack trace:
+#0 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(59): include_once()
+#1 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(47): PHPUnit\Util\FileLoader::load('/home/dragbinc/...')
+#2 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/StandardTestSuiteLoader.php(40): PHPUnit\Util\FileLoader::checkAndLoad('/home/dragbinc/...')
+#3 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(131): PHPUnit\Runner\StandardTestSuiteLoader->load('application/tes...', '/home/dragbinc/...')
+#4 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(78): PHPUnit\Runner\BaseTestRunner->loadSuiteClass('application/tes...', '/home/dragbinc/...')
+#5 phar:///home/dragbinc/public_html/phpunit/phpunit/TextUI/Command.php(185): PHPUnit\Runner\BaseTestRunner->getTest('application/tes...', '/home/dragbinc/...', Array)
+ in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php on line 3
+[10-Mar-2019 17:09:59 UTC] PHP Fatal error:  Uncaught Error: Class 'TestCase' not found in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php:3
+Stack trace:
+#0 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(59): include_once()
+#1 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(47): PHPUnit\Util\FileLoader::load('/home/dragbinc/...')
+#2 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/StandardTestSuiteLoader.php(40): PHPUnit\Util\FileLoader::checkAndLoad('/home/dragbinc/...')
+#3 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(131): PHPUnit\Runner\StandardTestSuiteLoader->load('application/tes...', '/home/dragbinc/...')
+#4 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(78): PHPUnit\Runner\BaseTestRunner->loadSuiteClass('application/tes...', '/home/dragbinc/...')
+#5 phar:///home/dragbinc/public_html/phpunit/phpunit/TextUI/Command.php(185): PHPUnit\Runner\BaseTestRunner->getTest('application/tes...', '/home/dragbinc/...', Array)
+ in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php on line 3
+[10-Mar-2019 17:11:50 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit\Framework\UnitTest' not found in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php:6
+Stack trace:
+#0 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(59): include_once()
+#1 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(47): PHPUnit\Util\FileLoader::load('/home/dragbinc/...')
+#2 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/StandardTestSuiteLoader.php(40): PHPUnit\Util\FileLoader::checkAndLoad('/home/dragbinc/...')
+#3 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(131): PHPUnit\Runner\StandardTestSuiteLoader->load('application/tes...', '/home/dragbinc/...')
+#4 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(78): PHPUnit\Runner\BaseTestRunner->loadSuiteClass('application/tes...', '/home/dragbinc/...')
+#5 phar:///home/dragbinc/public_html/phpunit/phpunit/TextUI/Command.php(185): PHPUnit\Runner\BaseTestRunner->getTest('application/tes...', '/home/drag in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php on line 6
+[10-Mar-2019 17:11:51 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit\Framework\UnitTest' not found in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php:6
+Stack trace:
+#0 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(59): include_once()
+#1 phar:///home/dragbinc/public_html/phpunit/phpunit/Util/FileLoader.php(47): PHPUnit\Util\FileLoader::load('/home/dragbinc/...')
+#2 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/StandardTestSuiteLoader.php(40): PHPUnit\Util\FileLoader::checkAndLoad('/home/dragbinc/...')
+#3 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(131): PHPUnit\Runner\StandardTestSuiteLoader->load('application/tes...', '/home/dragbinc/...')
+#4 phar:///home/dragbinc/public_html/phpunit/phpunit/Runner/BaseTestRunner.php(78): PHPUnit\Runner\BaseTestRunner->loadSuiteClass('application/tes...', '/home/dragbinc/...')
+#5 phar:///home/dragbinc/public_html/phpunit/phpunit/TextUI/Command.php(185): PHPUnit\Runner\BaseTestRunner->getTest('application/tes...', '/home/drag in /home/dragbinc/public_html/application/tests/controllers/Siguptest.php on line 6

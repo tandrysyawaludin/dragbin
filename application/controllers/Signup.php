@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SignUp extends CI_Controller {
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct();		
 		$this->load->model('user');
 		$this->load->helper('url');
@@ -11,9 +11,13 @@ class SignUp extends CI_Controller {
 		$this->load->library('session');
 	}
 
-	public function index() {
+	function index() {
 		session_destroy();
 		$this->load->view('signup_page');
+	}
+	
+	function halo() {
+	    return "halo";
 	}
 
 	function create_user() {
@@ -93,7 +97,7 @@ class SignUp extends CI_Controller {
 // 		}
 	}
 	
-	function submit_create_user($data) {
+	private function submit_create_user($data) {
 	    $data_count = $this->user->create($data);
 			    
 		if ($data_count > 0) {
@@ -105,7 +109,7 @@ class SignUp extends CI_Controller {
 			);
 
 			$this->session->set_userdata($data_session);
-			redirect('loginpage');
+			redirect('signin');
 		}
 		else {
 			$data_session = array(
@@ -117,7 +121,7 @@ class SignUp extends CI_Controller {
 		}
 	}
 	
-	function send_mail($user_email) {
+	private function send_mail($user_email) {
         $config = Array(
             'protocol' => "smtp",
             'smtp_host' => "smtp.gmail.com",
@@ -131,7 +135,7 @@ class SignUp extends CI_Controller {
             'smtp_timeout' => "5"
         );
     
-        $message = 'Please access this link to verify your email<br/><a href="https://dragbin.com/signup/confirmation_email/'.base64_encode($user_email).'">https://dragbin.com/'.base64_encode($user_email).'</a>';
+        $message = 'Please access this link to verify your email<br/><a href="https://dragbin.com/index.php/signup/verify_email?vt='.base64_encode($user_email).'">https://dragbin.com/index.php/signup/verify_email?vt='.base64_encode($user_email).'</a>';
         $this->load->library("email", $config);
         $this->email->set_newline("\r\n");
         $this->email->from("hidragbin@gmail.com");
@@ -152,6 +156,12 @@ class SignUp extends CI_Controller {
         $code_confirmation = $this->input->get('vt', TRUE);
         $res_decode = base64_decode($code_confirmation);
         $this->user->verify_email($res_decode);
+        $data_session = array(
+            'status' => 'success',
+            'message' => 'Success to verify email, please Sign In.'
+        );
+        
+        $this->session->set_userdata($data_session);
         redirect('signin');
     }
 }

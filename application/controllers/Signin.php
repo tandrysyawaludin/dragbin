@@ -12,4 +12,6 @@ class Signin extends CI_Controller {
 	{
 		$this->load->view('signin_page');
 	}
+	
+	
 }

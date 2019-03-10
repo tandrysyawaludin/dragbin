@@ -4,8 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_Model{
  
 	function create($data){
-	   // var_dump($data);
-	   // exit;
 		$this->db->insert('users', $data);
 		return $this->db->insert_id();
 	}
