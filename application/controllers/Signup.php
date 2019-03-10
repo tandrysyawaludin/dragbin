@@ -9,15 +9,12 @@ class SignUp extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->library('session');
+		$this->load->library('unit_test');
 	}
 
 	function index() {
 		session_destroy();
 		$this->load->view('signup_page');
-	}
-	
-	function halo() {
-	    return "halo";
 	}
 
 	function create_user() {
@@ -46,56 +43,41 @@ class SignUp extends CI_Controller {
         }
         else {
             $data_session = array(
-                'status' => 'register failed',
+                'status' => 'failed',
                 'message' => $this->upload->display_errors()
             );
             $this->session->set_userdata($data_session);
             redirect('signup');
         }
-		
-        // Enable it if upload photo is available 		
-
-		// Configuration for uploading photo
-// 		$config['upload_path'] = './user_img/';
-// 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
-// 		$config['max_size'] = 5000;
-// 		$config['file_name'] = strstr($email, '@', true);
-// 		$this->load->library('upload', $config);
-		
-// 		if ($this->upload->do_upload('photo')) {
-//     	    $data = array(
-//     			'email' => $email,
-//     			'password' => sha1($password),
-//     			'phone_number' => phone_number,
-//     			'name' => name,
-//     			'address' => $address,
-//     			'map_link' => $email,
-//     			'photo' => $this->upload->data()["file_name"],
-//     			'whatsapp' => $whatsapp,
-//     			'facebook' => $facebook
-//     		);
-			
-// 			if ($this->send_mail($email)) {
-// 			    $this->submit_create_user($data);
-// 			}
-// 	        else {
-// 	            $data_session = array(
-// 					'status' => 'failed',
-// 					'message' => 'Failed to send email verification, please try again or try with another email.'
-// 				);
-// 				$this->session->set_userdata($data_session);	
-// 				redirect('signup');
-// 	        }
-// 		}
-// 		else {
-// 		    $data_session = array(
-// 				'status' => 'register failed',
-// 				'message' => $this->upload->display_errors()
-// 			);
-// 			$this->session->set_userdata($data_session);
-// 		    redirect('signup');
-// 		}
 	}
+	
+	function test_create_user(){
+	    $_POST['email'] = "test@test.com";
+	    $_POST['password'] = "123FourFive";
+	    $_POST['phone_number'] = "08123";
+	    $_POST['name'] = "Lorem";
+	    $_POST['address'] = "Lorem Ipsum Lorem";
+	    
+	    echo "Using Unit Test Library";	
+		$this->create_user();
+		$test = $this->session->status;
+		$expected_result = "success";
+		$test_name = "Division test function";
+		echo $this->unit->run($test, $expected_result,$test_name);
+	}
+	
+	function verify_email() {
+        $code_confirmation = $this->input->get('vt', TRUE);
+        $res_decode = base64_decode($code_confirmation);
+        $this->user->verify_email($res_decode);
+        $data_session = array(
+            'status' => 'success',
+            'message' => 'Success to verify email, please Sign In.'
+        );
+        
+        $this->session->set_userdata($data_session);
+        redirect('signin');
+    }
 	
 	private function submit_create_user($data) {
 	    $data_count = $this->user->create($data);
@@ -113,7 +95,7 @@ class SignUp extends CI_Controller {
 		}
 		else {
 			$data_session = array(
-				'status' => 'register failed',
+				'status' => 'failed',
 				'message' => 'Email has already been taken.'
 			);
 			$this->session->set_userdata($data_session);	
@@ -151,17 +133,46 @@ class SignUp extends CI_Controller {
         }
     
     }
-    
-    function verify_email() {
-        $code_confirmation = $this->input->get('vt', TRUE);
-        $res_decode = base64_decode($code_confirmation);
-        $this->user->verify_email($res_decode);
-        $data_session = array(
-            'status' => 'success',
-            'message' => 'Success to verify email, please Sign In.'
-        );
-        
-        $this->session->set_userdata($data_session);
-        redirect('signin');
-    }
 }
+
+        // Enable it if upload photo is available 		
+        // Configuration for uploading photo
+        // $config['upload_path'] = './user_img/';
+        // $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        // $config['max_size'] = 5000;
+        // $config['file_name'] = strstr($email, '@', true);
+        // $this->load->library('upload', $config);
+        
+        // if ($this->upload->do_upload('photo')) {
+        // $data = array(
+        // 'email' => $email,
+        // 'password' => sha1($password),
+        // 'phone_number' => phone_number,
+        // 'name' => name,
+        // 'address' => $address,
+        // 'map_link' => $email,
+        // 'photo' => $this->upload->data()["file_name"],
+        // 'whatsapp' => $whatsapp,
+        // 'facebook' => $facebook
+        // );
+        
+        // if ($this->send_mail($email)) {
+        // $this->submit_create_user($data);
+        // }
+        // else {
+        // $data_session = array(
+        // 'status' => 'failed',
+        // 'message' => 'Failed to send email verification, please try again or try with another email.'
+        // );
+        // $this->session->set_userdata($data_session);	
+        // redirect('signup');
+        // }
+        // }
+        // else {
+        // $data_session = array(
+        // 'status' => 'failed',
+        // 'message' => $this->upload->display_errors()
+        // );
+        // $this->session->set_userdata($data_session);
+        // redirect('signup');
+        // }
