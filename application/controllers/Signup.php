@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SignUp extends CI_Controller {
+class Signup extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();		
@@ -9,15 +9,42 @@ class SignUp extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->library('session');
-		$this->load->library('unit_test');
 	}
 
 	function index() {
 		session_destroy();
 		$this->load->view('signup_page');
 	}
-
+	
+	function verify_email() {
+        $code_confirmation = $this->input->get('vt', TRUE);
+        $res_decode = base64_decode($code_confirmation);
+        $this->user->verify_email($res_decode);
+        $data_session = array(
+            'status' => 'success',
+            'message' => 'Success to verify email, please Sign In.'
+        );
+        
+        $this->session->set_userdata($data_session);
+        redirect('signin');
+    }
+	
 	function create_user() {
+	    $valid_data = $this->check_params_create_user();
+	    
+	    if(!is_null($valid_data)) {
+	        $this->post_new_user($valid_data);
+	    }
+	    
+        $data_session = array(
+            'status' => 'failed',
+            'message' => 'Please check your input'
+        );
+        $this->session->set_userdata($data_session);
+        redirect('signup');
+	}
+
+	private function check_params_create_user() {
 		$email = strtolower($this->input->post('email'));
 		$password = $this->input->post('password');
 		$phone_number = $this->input->post('phone_number');
@@ -39,47 +66,12 @@ class SignUp extends CI_Controller {
         );
         
         if (isset($email) && isset($password) && isset($phone_number) && isset($name) && isset($address)) {
-            $this->submit_create_user($data);
+            return $data;
         }
-        else {
-            $data_session = array(
-                'status' => 'failed',
-                'message' => $this->upload->display_errors()
-            );
-            $this->session->set_userdata($data_session);
-            redirect('signup');
-        }
+        return null;
 	}
 	
-	function test_create_user(){
-	    $_POST['email'] = "test@test.com";
-	    $_POST['password'] = "123FourFive";
-	    $_POST['phone_number'] = "08123";
-	    $_POST['name'] = "Lorem";
-	    $_POST['address'] = "Lorem Ipsum Lorem";
-	    
-	    echo "Using Unit Test Library";	
-		$this->create_user();
-		$test = $this->session->status;
-		$expected_result = "success";
-		$test_name = "Division test function";
-		echo $this->unit->run($test, $expected_result,$test_name);
-	}
-	
-	function verify_email() {
-        $code_confirmation = $this->input->get('vt', TRUE);
-        $res_decode = base64_decode($code_confirmation);
-        $this->user->verify_email($res_decode);
-        $data_session = array(
-            'status' => 'success',
-            'message' => 'Success to verify email, please Sign In.'
-        );
-        
-        $this->session->set_userdata($data_session);
-        redirect('signin');
-    }
-	
-	private function submit_create_user($data) {
+	private function post_new_user($data) {
 	    $data_count = $this->user->create($data);
 			    
 		if ($data_count > 0) {
@@ -157,7 +149,7 @@ class SignUp extends CI_Controller {
         // );
         
         // if ($this->send_mail($email)) {
-        // $this->submit_create_user($data);
+        // $this->post_new_user($data);
         // }
         // else {
         // $data_session = array(

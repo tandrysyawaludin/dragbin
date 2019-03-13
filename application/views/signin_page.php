@@ -32,17 +32,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </nav>
 
-        <form class="form-signin row">
+        <form class="form-signin row" action="<?php echo base_url()?>index.php/signin/authenticate_user" method="post">
             <div class="col-md-12"><h3>Sing In</h3></div>
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <button class="btn btn-lg btn-warning btn-block" type="submit">Sign In</button>
             </div>

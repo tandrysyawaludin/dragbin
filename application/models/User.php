@@ -12,7 +12,7 @@ class User extends CI_Model{
 	    $where = array(
 			'email' => $email,
 			'password' => sha1($password),
-			'email_confirmed' => true
+			'email_verified' => true
 		);
 		$data = $this->db->get_where('users', $where);
 		$data_result = array();
@@ -20,9 +20,8 @@ class User extends CI_Model{
 		if ($this->db->affected_rows() > 0) {
     		$data_result = array(
     		    'user_id' => $data->row()->id,
-    		    'package_id' => $data->row()->package_id,
-    		    'departement_id' => $data->row()->departement_id,
-    		    'access_type' => $data->row()->access_type,
+    		    'user_name' => $data->row()->name,
+    		    'user_photo' => $data->row()->photo,
     	    );
 		}
 		
