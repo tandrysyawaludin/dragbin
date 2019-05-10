@@ -18,7 +18,7 @@ class Access_token extends CI_Model{
 		return $data;
 	}
 	
-	function deactive($email) {
+	function deactive($user_id) {
 		$new_data = array("is_active"=> 0);
 		$this->db->where("user_id", $user_id);
 		$this->db->update("access_token", $new_data);

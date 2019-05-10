@@ -14,6 +14,6 @@ class MY_Controller extends CI_Controller {
 	function verify_signedin() {
 		$user_id = $this->session->userdata('user_id');
 	    $access_token = $this->access_token->get_by_user_id($user_id);
-		$signedin = $user_id > 0 && sizeof($access_token) > 0;
+		return $user_id > 0 && sizeof($access_token) > 0;
 	}
 }

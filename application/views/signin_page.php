@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link href="<?php echo base_url()?>assets/styles/signin.css" rel="stylesheet" crossorigin="anonymous">
     </head>
     
-    <body class="text-center">
+    <body>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">dragbin</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/">About</a>
                     </li>
                 </ul>
                 <a href="<?php echo base_url()?>index.php/signup">
@@ -32,21 +32,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </nav>
 
-        <form class="form-signin row" action="<?php echo base_url()?>index.php/signin/authenticate_user" method="post">
-            <div class="col-md-12"><h3>Sing In</h3></div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+        <div class="container">
+            <form class="form-signin row" action="<?php echo base_url()?>index.php/signin/authenticate_user" method="post">
+                <div class="col-md-12"><h3>Sing In</h3></div>
+                <div class="col-md-12">
+                    <?php if ($this->session->status == "failed") { ?>
+                    <div class="alert alert-danger" role="alert">
+                      <?php echo $this->session->message ?>
+                    </div>
+                    <?php } ?>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <button class="btn btn-lg btn-warning btn-block" type="submit">Sign In</button>
                 </div>
-                
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            </form>
+            
+            <footer class="row text-center">
+                <div class="col pt-3">
+                  <p>copyright 2019 | dragbin website</p>
                 </div>
-                <button class="btn btn-lg btn-warning btn-block" type="submit">Sign In</button>
-            </div>
-        </form>
+            </footer>
+        </div>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

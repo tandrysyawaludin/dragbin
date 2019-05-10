@@ -3,16 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Signup extends MY_Controller {
 
-	public function __construct() {
+	function __construct() {
 		parent::__construct();		
 		$this->load->model('user');
+		$this->load->model('post');
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->library('session');
 	}
 
 	function index() {
-		session_destroy();
 		$this->load->view('signup_page');
 	}
 	
@@ -72,9 +72,9 @@ class Signup extends MY_Controller {
 	}
 	
 	private function post_new_user($data) {
-	    $data_count = $this->user->create($data);
-			    
-		if ($data_count > 0) {
+	    $user_id = $this->user->create($data);
+	    
+		if ($user_id > 0) {
 			$this->send_mail($data['email']);
 			
 			$data_session = array(

@@ -7,6 +7,11 @@ class User extends CI_Model{
 		$this->db->insert('users', $data);
 		return $this->db->insert_id();
 	}
+	
+	function update($new_data, $id) {
+	    $this->db->update('users', $new_data, array('id' => $id));
+		return $this->db->affected_rows();
+	}
 
 	function get_by_auth($email, $password) {
 	    $where = array(
@@ -28,10 +33,9 @@ class User extends CI_Model{
 		return $data_result;
 	}
 
-	function get_by_id($params) {
-		$data = $this->db->get_where('users', $params);
-		$data = $data->result_array();
-		return $data;
+	function get_by($param) {
+		$query = $this->db->get_where('users', $param);
+		return $query->row_array();
 	}
 	
 	function verify_email($email) {

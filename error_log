@@ -93,3 +93,31 @@ Stack trace:
 [13-Mar-2019 17:31:30 UTC] PHP Fatal error:  Call to a member function get_by_user_id() on null in /home/dragbinc/public_html/application/core/MY_Controller.php on line 16
 [13-Mar-2019 17:31:30 UTC] PHP Fatal error:  Call to a member function get_by_user_id() on null in /home/dragbinc/public_html/application/core/MY_Controller.php on line 16
 [13-Mar-2019 17:32:54 UTC] PHP Fatal error:  Call to a member function get_by_auth() on null in /home/dragbinc/public_html/application/core/MY_Controller.php on line 17
+[16-Mar-2019 11:00:47 UTC] PHP Fatal error:  Call to undefined function encrypt() in /home/dragbinc/public_html/application/controllers/Signin.php on line 14
+[16-Mar-2019 11:54:52 UTC] PHP Parse error:  syntax error, unexpected '$signedin' (T_VARIABLE), expecting function (T_FUNCTION) in /home/dragbinc/public_html/application/core/MY_Controller.php on line 6
+[16-Mar-2019 12:52:05 UTC] PHP Fatal error:  Call to undefined function mdate() in /home/dragbinc/public_html/application/views/home_page.php on line 57
+[16-Mar-2019 15:28:36 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dragbinc/public_html/application/views/profile_page.php on line 44
+[16-Mar-2019 17:53:33 UTC] PHP Parse error:  syntax error, unexpected ']' in /home/dragbinc/public_html/application/views/profile_page.php on line 135
+[17-Mar-2019 14:44:30 UTC] PHP Fatal error:  Call to undefined method CI_Input::file() in /home/dragbinc/public_html/application/controllers/Profile.php on line 50
+[03-Apr-2019 11:53:19 UTC] PHP Fatal error:  Call to a member function do_upload() on null in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 11:58:28 UTC] PHP Fatal error:  Call to a member function do_upload() on null in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 11:59:32 UTC] PHP Fatal error:  Call to a member function do_upload() on null in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 12:10:18 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 12:10:19 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 12:10:20 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 12:10:22 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 12:10:24 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 12:10:24 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 12:10:28 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[03-Apr-2019 12:10:31 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/dragbinc/public_html/application/controllers/Profile.php on line 71
+[18-Apr-2019 17:36:43 UTC] PHP Fatal error:  Call to undefined method Profile::check_params_create_user() in /home/dragbinc/public_html/application/controllers/Profile.php on line 59
+[03-May-2019 09:35:44 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/dragbinc/public_html/application/controllers/Profile.php on line 105
+[03-May-2019 09:36:09 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/dragbinc/public_html/application/controllers/Profile.php on line 105
+[03-May-2019 09:36:11 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/dragbinc/public_html/application/controllers/Profile.php on line 105
+[03-May-2019 09:36:12 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/dragbinc/public_html/application/controllers/Profile.php on line 105
+[03-May-2019 09:36:12 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/dragbinc/public_html/application/controllers/Profile.php on line 105
+[03-May-2019 09:36:12 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/dragbinc/public_html/application/controllers/Profile.php on line 105
+[03-May-2019 09:36:12 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/dragbinc/public_html/application/controllers/Profile.php on line 105
+[03-May-2019 09:36:12 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/dragbinc/public_html/application/controllers/Profile.php on line 105
+[04-May-2019 13:58:08 UTC] PHP Parse error:  syntax error, unexpected 'partner_code' (T_STRING), expecting ']' in /home/dragbinc/public_html/application/views/profile_page.php on line 126
+[10-May-2019 16:55:41 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/dragbinc/public_html/application/views/home_page.php on line 73
