@@ -34,8 +34,12 @@ class User extends CI_Model{
 	}
 
 	function get_by($param) {
-		$query = $this->db->get_where('users', $param);
-		return $query->row_array();
+		return $this->db->get_where('users', $param)->row_array();
+	}
+	
+	function get_phone_number($user_id) {
+	    $param = array('id' => $user_id);
+	    return $this->db->get_where('users', $param)->row()->phone_number;
 	}
 	
 	function verify_email($email) {

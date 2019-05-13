@@ -13,7 +13,7 @@ class Home extends MY_Controller {
 	    $page = $this->input->get('page', TRUE);
 	    
 		if ($this->verify_signedin()) {
-		    $posts = $this->show_posts_order_by_created_at($page);
+		    $posts = $this->show_posts_order_by_updated_at($page);
 		    $data = array(
 		        'posts' => $posts,
 		        'next_page' => $page+1,
@@ -26,9 +26,9 @@ class Home extends MY_Controller {
 		}		
 	}
 	
-	function show_posts_order_by_created_at($page) {
+	function show_posts_order_by_updated_at($page) {
 	    $param = array(
-	        "column" => 'created_at',
+	        "column" => 'updated_at',
 	        "sort" => 'desc',
 	        "next_offset" => 10*$page
         );

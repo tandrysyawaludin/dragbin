@@ -50,6 +50,12 @@ class Profile extends MY_Controller {
 	    return $this->post->get_categories();
 	}
 	
+	function show_phone_number() {
+	    $user_id = base64_decode($this->input->get('code', TRUE));
+	    $data = array('phone_number' => $this->user->get_phone_number($user_id));
+	    $this->load->view('show_phone_number_page', $data);
+	}
+	
 	function edit_profile() {
 	    $param = array('id' => $this->session->user_id);
 	    $data = array('user' => $this->user->get_by($param));

@@ -29,45 +29,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a class="nav-link" href="profile">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="message">Message</a>
+                    <a class="nav-link" href="/index.php/history_transaction">Transaction</a>
                 </li>
             </ul>
-            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
+            <a href="/index.php/signin/revoke_auth_authentication" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
         </div>
     </nav>
     
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3 col-sm-12">
-                <ul class="list-unstyled">
-                    <?php foreach($posts as $post) {?>
-                    <li class="media mt-4 post-container">
-                        <img src="<?php echo base_url(), "assets/images/{$post['user_photo']}" ?>" class="img-patner rounded mr-3" alt="img">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-0"><?php echo $post['user_name'] ?></h5>
-                            <?php foreach(explode(',', $post['post_categories']) as $category) { ?>
-                                <a href="#" class="badge badge-warning"><?php echo $category ?></a>
-                            <?php } ?>
-                            <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?></small></div>
-                            <hr/>
-                            <p>
-                                <?php echo trim(preg_replace('/\s\s+/', ' ', $post['post_description'])) ?>
-                            </p>
-                            <p>
-                                <?php echo $post['user_address'] ?>
-                                <a href="<?php echo $post['user_map_link']?>" class="badge badge-link">goto map</a>
-                            </p>
-                            <a href="https://wa.me/62<?php echo $post['user_whatsapp']?>" class="btn btn-success btn-sm">Whatsapp</a>
-                            <a href="<?php echo $post['user_facebook']?>" class="btn btn-success btn-sm">Facebook</a>
-                            <a href="<?php echo base_url()?>index.php/show_phone_number" class="btn btn-success btn-sm">Phone Number</a>
-                        </div>
-                    </li>
-                    <?php } ?>
-                </ul>
+            <div class="col-md-6 offset-md-3 col-sm-12 mt-4">
+                <?php if (sizeof($posts) > 0) { ?>
+                    <ul class="list-unstyled">
+                        <?php foreach($posts as $post) { ?>
+                            <li class="media post-container">
+                                <img src="<?php echo base_url(), "assets/images/{$post['user_photo']}" ?>" class="img-patner rounded mr-3" alt="img">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-0"><?php echo $post['user_name'] ?></h5>
+                                    <?php foreach(explode(',', $post['post_categories']) as $category) { ?>
+                                        <a href="#" class="badge badge-warning"><?php echo $category ?></a>
+                                    <?php } ?>
+                                    <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?></small></div>
+                                    <hr/>
+                                    <p class="post-description">
+                                        <?php echo $post['post_description'] ?>
+                                    </p>
+                                    <p>
+                                        <?php echo $post['user_address'] ?>
+                                        <a href="<?php echo $post['user_map_link']?>" class="badge badge-link">goto map</a>
+                                    </p>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <?php if (!empty(trim($post['user_whatsapp']))) { ?>
+                                            <a href="https://wa.me/62<?php echo $post['user_whatsapp']?>" class="btn btn-success btn-sm">Whatsapp</a>
+                                        <? } ?>
+                                        <?php if (!empty(trim($post['user_facebook']))) { ?>
+                                            <a href="<?php echo $post['user_facebook']?>" class="btn btn-success btn-sm">Facebook</a>
+                                        <? } ?>
+                                        <a href="<?php echo "profile/show_phone_number?code=", base64_encode($post['user_id']) ?>" class="btn btn-success btn-sm">Phone Number</a>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                <?php 
+                }
+                else {
+                    echo "No post available";
+                }
+                ?>
                 <?php if(sizeof($posts) > 0) { ?>
-                    <a href="https://dragbin.com/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block" role="button">See more</a>
+                    <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block" role="button">See more</a>
                 <?php } else { ?>
-                    <a href="https://dragbin.com/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block" role="button">Go to previous</a>
+                    <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block" role="button">Go to previous</a>
                 <?php } ?>
             </div>
         </div>
