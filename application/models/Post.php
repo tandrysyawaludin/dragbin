@@ -37,6 +37,7 @@ class Post extends CI_Model{
 	        users.facebook as user_facebook,
 	        users.phone_number as user_phone_number,
 	        users.photo as user_photo,
+	        users.partner_code as user_partner_code,
 	        users.id as user_id
 	    ');
         $this->db->join('users', 'users.id = posts.user_id');

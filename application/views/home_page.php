@@ -23,13 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index.php/home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profile">Profile</a>
+                    <a class="nav-link" href="/index.php/profile">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/history_transaction">Transaction</a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaction</a>
                 </li>
             </ul>
             <a href="/index.php/signin/revoke_auth_authentication" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
@@ -51,13 +51,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php } ?>
                                     <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?></small></div>
                                     <hr/>
+                                    
                                     <p class="post-description">
                                         <?php echo $post['post_description'] ?>
                                     </p>
+                                    
                                     <p>
                                         <?php echo $post['user_address'] ?>
                                         <a href="<?php echo $post['user_map_link']?>" class="badge badge-link">goto map</a>
                                     </p>
+                                    
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <?php if (!empty(trim($post['user_whatsapp']))) { ?>
                                             <a href="https://wa.me/62<?php echo $post['user_whatsapp']?>" class="btn btn-success btn-sm">Whatsapp</a>
@@ -67,6 +70,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <? } ?>
                                         <a href="<?php echo "profile/show_phone_number?code=", base64_encode($post['user_id']) ?>" class="btn btn-success btn-sm">Phone Number</a>
                                     </div>
+                                    
+                                    <a href="<?php echo '/index.php/transaction_list/create_offer?pc=', $post['user_partner_code']?>" class="btn btn-success btn-sm">Offer</a>
                                 </div>
                             </li>
                         <?php } ?>

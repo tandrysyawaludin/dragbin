@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a class="nav-link" href="profile">Profile <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/history_transaction">Transaction</a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaction</a>
                 </li>
             </ul>
             <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
@@ -134,7 +134,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="form-group row">
                                 <label for="description" class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
-                                    <?php echo $post['description'] ?>
                                     <textarea class="form-control" id="description" disabled><?php echo $post['description'] ?></textarea>
                                 </div>
                             </div>

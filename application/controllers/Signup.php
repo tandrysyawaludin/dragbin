@@ -72,9 +72,7 @@ class Signup extends MY_Controller {
 	}
 	
 	private function post_new_user($data) {
-	    $user_id = $this->user->create($data);
-	    
-		if ($user_id > 0) {
+		if ($this->user->create($data) > 0) {
 			$this->send_mail($data['email']);
 			
 			$data_session = array(

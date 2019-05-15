@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="dragbin is an application which help future of recycle">
     <meta name="author" content="tandry syawaludin">
-	<title>History Transaction</title>
+	<title>Transaction List</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -23,13 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="home">Home</a>
+                    <a class="nav-link" href="/index.php/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profile">Profile</a>
+                    <a class="nav-link" href="/index.php/profile">Profile</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.php/history_transaction">Transaction <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaction <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
@@ -37,22 +37,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </nav>
 
     <div class="container">
-        <div class="row mt-4 mb-1">
-            <div class="col-md-4 offset-md-3 col-sm-12">
-                <a href="/index.php/history_transaction/create_transaction" class="btn btn-success btn-block" role="button">Create Transaction</a>
+        <div class="row mt-4">
+            <div class="col-md-4 offset-md-3 col-sm-12 mb-4">
+                <a href="/index.php/transaction_list/create_offer" class="btn btn-success btn-block" role="button">Create Offer</a>
             </div>
             
-            <div class="col-md-2 col-sm-12">
+            <div class="col-md-2 col-sm-12 mb-4">
                 <div class="dropdown show">
                     <a class="btn btn-secondary dropdown-toggle btn-block" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Filter: Created
+                        Filter: <?php echo ucwords($transaction_status) ?>
                     </a>
                     
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/index.php/history_transaction/filter_transaction?ts=created">Created</a>
-                        <a class="dropdown-item" href="/index.php/history_transaction/filter_transaction?ts=paid">Paid</a>
-                        <a class="dropdown-item" href="/index.php/history_transaction/filter_transaction?ts=delivered">Delivered</a>
-                        <a class="dropdown-item" href="/index.php/history_transaction/filter_transaction?ts=received">Received</a>
+                        <a class="dropdown-item" href="/index.php/transaction_list/filter_transaction?ts=offered">Offered</a>
+                        <a class="dropdown-item" href="/index.php/transaction_list/filter_transaction?ts=paid">Paid</a>
+                        <a class="dropdown-item" href="/index.php/transaction_list/filter_transaction?ts=delivered">Delivered</a>
+                        <a class="dropdown-item" href="/index.php/transaction_list/filter_transaction?ts=received">Received</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php if (sizeof($transactions) > 0) { ?>
                     <ul class="list-unstyled">
                         <?php foreach($transactions as $transaction) { ?>
-                            <li class="media post-container">
+                            <li class="media post-container mb-4">
                                 <div class="media-body">
                                     <h5 class="mt-0 mb-0"><?php echo $transaction['total_pay'] ?></h5>
                                     <a href="#" class="badge badge-warning"><?php echo $transaction['status'] ?></a>
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php echo $transaction['description'] ?>
                                     </p>
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="<?php echo "/index.php/history_transaction/", $transaction['id'] ?>" class="btn btn-success btn-sm">See more</a>
+                                        <a href="<?php echo "/index.php/transaction_list/", $transaction['id'] ?>" class="btn btn-success btn-sm">See more</a>
                                     </div>
                                 </div>
                             </li>
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 ?>
                 <?php if(sizeof($transactions) > 0) { ?>
-                    <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-4" role="button">See more</a>
+                    <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block" role="button">See more</a>
                 <?php } else { ?>
                     <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-4" role="button">Go to previous</a>
                 <?php } ?>

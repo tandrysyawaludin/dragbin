@@ -9,11 +9,6 @@ body {
   height: 100%;
 }
 
-.row>[class^=col-] {
-    padding-top: .75rem;
-    padding-bottom: .75rem;
-}
-
 .post-description {
     white-space: pre-line;
     margin-top: -20px;
