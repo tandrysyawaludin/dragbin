@@ -32,3 +32,15 @@ body {
     font-size: 20px;
     font-weight: 600;
 }
+
+.transaction-menu {
+    padding-left: 0;
+    font-size: 24px;
+    color: #797979;
+    font-weight: 600;
+}
+
+.transaction-menu.active,
+.transaction-menu:hover {
+    color: black;
+}

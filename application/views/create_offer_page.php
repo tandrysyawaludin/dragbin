@@ -48,35 +48,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="form-group row">
                             <label for="partner_code" class="col-sm-4 col-form-label">Partner Code</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="partner_code" value="<?php echo $partner_code ?>" type="text" name="partner_code">
+                                <input class="form-control" id="partner_code" value="<?php echo $partner_code ?>" type="text" name="partner_code" required>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="total_pay" class="col-sm-4 col-form-label">Total Pay</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="total_pay" type="number" name="total_pay">
+                                <input class="form-control" id="total_pay" type="number" name="total_pay" required>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="description" class="col-sm-4 col-form-label">Description</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="description" name="description"></textarea>
+                                <textarea class="form-control" id="description" name="description" required></textarea>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="courier_name" class="col-sm-4 col-form-label">Courier Name</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="courier_name" name="courier_name">
+                                <input class="form-control" id="courier_name" name="courier_name" required>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="courier_phone_number" class="col-sm-4 col-form-label">Courier Phone Number</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="courier_phone_number" name="courier_phone_number">
+                                <input class="form-control" id="courier_phone_number" name="courier_phone_number" required>
                             </div>
                         </div>
                         

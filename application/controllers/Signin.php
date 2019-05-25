@@ -31,7 +31,6 @@ class Signin extends MY_Controller {
 			$data_session = array(
 				'user_id' => $data["user_id"],
 				'user_name' => $data["user_name"],
-				'user_photo' => $data["user_photo"],
 				'message' => 'Signin Success',
 				'status' => 'success',
 			);

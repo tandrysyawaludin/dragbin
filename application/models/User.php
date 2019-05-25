@@ -26,7 +26,7 @@ class User extends CI_Model{
     		$data_result = array(
     		    'user_id' => $data->row()->id,
     		    'user_name' => $data->row()->name,
-    		    'user_photo' => $data->row()->photo,
+    		    'user_partner_code' => $data->row()->partner_code,
     	    );
 		}
 		
@@ -46,5 +46,13 @@ class User extends CI_Model{
 		$new_data = array("email_verified"=> 1);
 		$this->db->where("email", $email);
 		$this->db->update("users", $new_data);
+	}
+	
+	function verify_partner_code($partner_code) {
+	    $where = array(
+			'partner_code' => $partner_code
+		);
+		$data = $this->db->get_where('users', $where);
+		return $data->row()->id;
 	}
 }

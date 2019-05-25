@@ -37,7 +37,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </nav>
 
     <div class="container">
+          
         <div class="row mt-4">
+            <div class="col-md-4 offset-md-3 col-sm-12">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'to_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=to_me&ts=offered">
+                            To Me
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'from_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=from_me&ts=offered">
+                            From Me
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row mt-1">
             <div class="col-md-4 offset-md-3 col-sm-12 mb-4">
                 <a href="/index.php/transaction_list/create_offer" class="btn btn-success btn-block" role="button">Create Offer</a>
             </div>
@@ -49,10 +67,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </a>
                     
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/index.php/transaction_list/filter_transaction?ts=offered">Offered</a>
-                        <a class="dropdown-item" href="/index.php/transaction_list/filter_transaction?ts=paid">Paid</a>
-                        <a class="dropdown-item" href="/index.php/transaction_list/filter_transaction?ts=delivered">Delivered</a>
-                        <a class="dropdown-item" href="/index.php/transaction_list/filter_transaction?ts=received">Received</a>
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=offered&tt=', $transaction_target ?>">
+                            Offered
+                        </a>
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=paid&tt=', $transaction_target ?>">
+                            Paid
+                        </a>
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=delivered&tt=', $transaction_target ?>">
+                            Delivered
+                        </a>
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=received&tt=', $transaction_target ?>">
+                            Received
+                        </a>
                     </div>
                 </div>
             </div>
@@ -66,15 +92,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php foreach($transactions as $transaction) { ?>
                             <li class="media post-container mb-4">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-0"><?php echo $transaction['total_pay'] ?></h5>
+                                    <h5 class="mt-0 mb-0"><?php echo $currency.number_format($transaction['total_pay']) ?></h5>
                                     <a href="#" class="badge badge-warning"><?php echo $transaction['status'] ?></a>
                                     <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($transaction['updated_at'])) ?></small></div>
                                     <hr/>
                                     <p class="transaction-description">
-                                        <?php echo $transaction['description'] ?>
+                                        <?php echo strlen($transaction['description']) > 50 ? substr($transaction['description'],0,50)."..." : $transaction['description']; ?>
                                     </p>
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="<?php echo "/index.php/transaction_list/", $transaction['id'] ?>" class="btn btn-success btn-sm">See more</a>
+                                        <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>" class="btn btn-success btn-sm">See more</a>
                                     </div>
                                 </div>
                             </li>

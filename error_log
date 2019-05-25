@@ -134,3 +134,28 @@ Stack trace:
 [12-May-2019 13:54:34 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Post.php on line 45
 [12-May-2019 13:56:23 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Post.php on line 45
 [12-May-2019 13:56:26 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Post.php on line 45
+[18-May-2019 11:33:48 UTC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE), expecting ',' or ';' in /home/dragbinc/public_html/application/models/Transaction.php on line 31
+[18-May-2019 11:33:50 UTC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE), expecting ',' or ';' in /home/dragbinc/public_html/application/models/Transaction.php on line 31
+[18-May-2019 14:05:40 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:05:55 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:05:56 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:05:56 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:05:56 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:05:59 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:29 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:30 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:30 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:31 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:31 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:31 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:31 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:31 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:31 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:32 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:32 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[18-May-2019 14:08:36 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/dragbinc/public_html/application/models/Transaction.php on line 33
+[25-May-2019 05:24:06 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dragbinc/public_html/application/views/transaction_detail_page.php on line 60
+[25-May-2019 05:24:41 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dragbinc/public_html/application/views/transaction_detail_page.php on line 60
+[25-May-2019 05:26:26 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dragbinc/public_html/application/views/transaction_detail_page.php on line 61
+[25-May-2019 05:27:12 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dragbinc/public_html/application/views/transaction_detail_page.php on line 60
+[25-May-2019 06:35:06 UTC] PHP Parse error:  syntax error, unexpected 'text' (T_STRING), expecting ',' or ';' in /home/dragbinc/public_html/application/views/transaction_detail_page.php on line 68
