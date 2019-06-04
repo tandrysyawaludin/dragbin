@@ -36,11 +36,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <form class="form-signin row" action="<?php echo base_url()?>index.php/signin/authenticate_user" method="post">
                 <div class="col-md-12"><h3>Sing In</h3></div>
                 <div class="col-md-12">
-                    <?php if ($this->session->status == "failed") { ?>
-                    <div class="alert alert-danger" role="alert">
+                    <?php if (isset($this->session->status)) { ?>
+                    <div class="alert alert-<?php echo $this->session->status === "failed" ? "danger" : "success" ?>" role="alert">
                       <?php echo $this->session->message ?>
                     </div>
                     <?php } ?>
+                    
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>

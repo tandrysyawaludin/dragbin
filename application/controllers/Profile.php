@@ -9,21 +9,20 @@ class Profile extends MY_Controller {
         $this->load->model('post');
 	}
 	
+	protected function middleware() {
+        return array('user_auth');
+    }
+	
 	function index() {
-		if ($this->verify_signedin()) {
-		    $user = $this->show_user_profile();
-		    $post = $this->show_user_post();
-		    $categories = $this->show_post_categories();
-		    $data = array(
-		        'user' => $user,
-		        'post' => $post,
-		        'unchecked_categories' => array_diff($categories, explode(',', $post['categories']))
-		    );
-		    $this->load->view('profile_page', $data);
-		}
-		else {		
-			redirect('signin');		
-		}		
+	    $user = $this->show_user_profile();
+        $post = $this->show_user_post();
+        $categories = $this->show_post_categories();
+        $data = array(
+            'user' => $user,
+            'post' => $post,
+            'unchecked_categories' => array_diff($categories, explode(',', $post['categories']))
+        );
+        $this->load->view('profile_page', $data);
 	}
 	
 	function create_default_post($partner_code) {

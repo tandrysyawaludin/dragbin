@@ -65,13 +65,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </p>
                                 <hr/>
                                 <p class="transaction-description">
-                                    <?php echo "<span class='text-muted'>Buyer Name: </span>", isset($transaction->seller_name) ? $transaction->seller_name : $transaction->buyer_name ?><br/>
+                                    <?php echo "<span class='text-muted'>", isset($transaction->seller_name) ? "Seller Name: </span> {$transaction->seller_name}" : "Buyer Name: </span> {$transaction->buyer_name}" ?><br/>
                                     <?php echo "<span class='text-muted'>Courier Name: </span>", $transaction->courier_name ?><br/>
                                     <?php echo "<span class='text-muted'>Courier Phone Number: </span>",$transaction->courier_phone_number ?>
                                 </p>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="<?php echo "/index.php/transaction_list/", $transaction->id ?>" class="btn btn-success btn-sm">Accept & Pay</a>
-                                </div>
+                                
+                                <?php if (isset($transaction->seller_name) && $transaction->status === "offered" ) { ?>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <form action="<?php echo site_url('payment_confirmation') ?>" method="POST">
+                                            <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
+                                            <button type="submit" class="btn btn-success btn-sm">Accept & Pay</button>
+                                        </form>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </li>
                     </ul>

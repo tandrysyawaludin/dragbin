@@ -9,21 +9,20 @@ class Home extends MY_Controller {
 		$this->load->helper('url');
 	}
 	
+	protected function middleware() {
+        return array('user_auth');
+    }
+    
 	function index() {
 	    $page = $this->input->get('page', TRUE);
-	    
-		if ($this->verify_signedin()) {
-		    $posts = $this->show_posts_order_by_updated_at($page);
-		    $data = array(
-		        'posts' => $posts,
-		        'next_page' => $page+1,
-		        'current_page' => $page
-		    );
-		    $this->load->view('home_page', $data);
-		}
-		else {		
-			redirect('signin');		
-		}		
+	    $posts = $this->show_posts_order_by_updated_at($page);
+	    $data = array(
+	        'curr_user_id' => $this->session->user_id,
+	        'posts' => $posts,
+	        'next_page' => $page+1,
+	        'current_page' => $page
+	    );
+	    $this->load->view('home_page', $data);	
 	}
 	
 	function show_posts_order_by_updated_at($page) {

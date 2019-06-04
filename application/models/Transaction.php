@@ -39,6 +39,7 @@ class Transaction extends CI_Model {
 	
 	function get_transaction_by_id($params) {
 	    $this->db->select('
+	        transactions.id,
 	        transactions.total_pay,
 	        transactions.description,
 	        transactions.status,

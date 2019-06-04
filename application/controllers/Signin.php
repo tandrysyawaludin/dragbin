@@ -10,15 +10,13 @@ class Signin extends MY_Controller {
 		$this->load->helper('url');
 		$this->load->helper('encrypt_decrypt');
 	}
+	
+	protected function middleware() {
+        return array('user_auth|except:authenticate_user');
+    }
 
 	function index() {
-		if ($this->verify_signedin()) {
-		    redirect('home');
-		}
-		else {			
-		    session_destroy();
-			$this->load->view('signin_page');			
-		}		
+		$this->load->view('signin_page');	
 	}
 
 	function authenticate_user(){		

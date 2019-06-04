@@ -11,6 +11,10 @@ class Signup extends MY_Controller {
 		$this->load->helper('form');
 		$this->load->library('session');
 	}
+	
+	protected function middleware() {
+        return array('user_auth|only:index');
+    }
 
 	function index() {
 		$this->load->view('signup_page');
@@ -77,7 +81,7 @@ class Signup extends MY_Controller {
 			
 			$data_session = array(
 				'status' => 'success',
-				'message' => 'Success to Sign Up, please Sign In.'
+				'message' => 'Success to Sign Up, please check your inbox to activate account and then  Sign In'
 			);
 
 			$this->session->set_userdata($data_session);
