@@ -43,8 +43,6 @@ class Transaction extends CI_Model {
 	        transactions.total_pay,
 	        transactions.description,
 	        transactions.status,
-	        transactions.courier_name,
-	        transactions.courier_phone_number,
 	        transactions.updated_at
 	    ');
         if (isset($params["seller_id"])) {

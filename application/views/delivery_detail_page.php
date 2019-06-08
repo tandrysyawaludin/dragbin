@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="dragbin is an application which help future of recycle">
     <meta name="author" content="tandry syawaludin">
-	<title>Transaction Detail</title>
+	<title>Delivery Detail</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-4 offset-md-3 col-sm-12">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link transaction-menu" href="/index.php/transaction_list">
+                        <a class="nav-link transaction-menu" href="/index.php/transaction_list/show_detail_transaction?id=<?php echo $delivery["transaction_id"] ?>&tt=from_me">
                             < Back
                         </a>
                     </li>
@@ -52,42 +52,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         <div class="row">
             <div class="col-md-6 offset-md-3 col-sm-12">
-                <?php if (sizeof($transaction) > 0) { ?>
+                <?php if (sizeof($delivery) > 0) { ?>
                     <ul class="list-unstyled">
                         <li class="media post-container mb-4">
                             <div class="media-body">
-                                <h5 class="mt-0 mb-0"><?php echo $currency.number_format($transaction->total_pay) ?></h5>
-                                <span class="badge badge-dark"><?php echo $transaction->status ?></span>
-                                <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($transaction->updated_at)) ?></small></div>
-                                <hr/>
+                                <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($delivery["updated_at"])) ?></small></div>
                                 <p class="transaction-description">
-                                    <?php echo $transaction->description ?>
+                                    <?php echo "<span class='text-muted'>Courier Name: </span>", $delivery["courier_name"] ?><br/>
+                                    <?php echo "<span class='text-muted'>Courier Phone Number: </span>",$delivery["courier_phone_number"] ?>
                                 </p>
                                 <hr/>
                                 <p class="transaction-description">
-                                    <?php echo "<span class='text-muted'>", isset($transaction->seller_name) ? "Seller Name: </span> {$transaction->seller_name}" : "Buyer Name: </span> {$transaction->buyer_name}" ?><br/>
+                                    <?php echo $delivery["other_detail"] ?>
                                 </p>
-                                
-                                <?php if (isset($transaction->seller_name) && $transaction->status === "offered" ) { ?>
-                                    <form action="<?php echo site_url('payment_confirmation') ?>" method="POST">
-                                        <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Accept & Pay</button>
-                                    </form>
-                                <?php } ?>
-                                
-                                <?php if (isset($transaction->buyer_name) && $transaction->status === "paid" ) { ?>
-                                    <form action="<?php echo site_url('delivery_confirmation') ?>" method="POST">
-                                        <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Confirm Delivery</button>
-                                    </form>
-                                <?php } ?>
-                                
-                                <?php if (isset($transaction->buyer_name) && $transaction->status === "delivered" ) { ?>
-                                    <form action="<?php echo site_url('delivery_confirmation'), '/show_delivery_detail' ?>" method="POST">
-                                        <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">See Delivery Detail</button>
-                                    </form>
-                                <?php } ?>
+                                <hr/>
+                                <img src="<?php echo base_url(), "delivery_photo/{$delivery['delivery_photo']}" ?>" class="img-patner mr-3" alt="img" />
                             </div>
                         </li>
                     </ul>

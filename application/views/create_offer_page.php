@@ -67,20 +67,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         
                         <div class="form-group row">
-                            <label for="courier_name" class="col-sm-4 col-form-label">Courier Name</label>
-                            <div class="col-sm-8">
-                                <input class="form-control" id="courier_name" name="courier_name" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label for="courier_phone_number" class="col-sm-4 col-form-label">Courier Phone Number</label>
-                            <div class="col-sm-8">
-                                <input class="form-control" id="courier_phone_number" name="courier_phone_number" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
                             <div class="col-sm-8 offset-sm-4">
                                 <button type="submit" class="form-control btn btn-warning">Save Offer</button>
                             </div>

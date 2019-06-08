@@ -92,8 +92,6 @@ class Transaction_List extends MY_Controller {
                 'seller_id' => $user_id,
                 'total_pay' => $this->input->post('total_pay'),
                 'description' => $this->input->post('description'),
-                'courier_name' => $this->input->post('courier_name'),
-                'courier_phone_number' => $this->input->post('courier_phone_number'),
                 'buyer_id' => $this->session->user_id
             );
             

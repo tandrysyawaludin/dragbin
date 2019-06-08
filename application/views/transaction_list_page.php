@@ -93,15 +93,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li class="media post-container mb-4">
                                 <div class="media-body">
                                     <h5 class="mt-0 mb-0"><?php echo $currency.number_format($transaction['total_pay']) ?></h5>
-                                    <a href="#" class="badge badge-warning"><?php echo $transaction['status'] ?></a>
+                                    <span class="badge badge-dark"><?php echo $transaction['status'] ?></span>
                                     <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($transaction['updated_at'])) ?></small></div>
                                     <hr/>
+                                    
                                     <p class="transaction-description">
                                         <?php echo strlen($transaction['description']) > 50 ? substr($transaction['description'],0,50)."..." : $transaction['description']; ?>
                                     </p>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>" class="btn btn-success btn-sm">See more</a>
-                                    </div>
+                                    
+                                    <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>" class="btn btn-success btn-sm">See more</a>
                                 </div>
                             </li>
                         <?php } ?>

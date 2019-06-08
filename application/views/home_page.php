@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3 col-sm-12">
+            <div class="col-md-6 offset-md-3 col-sm-12 mb-4">
                 <?php if (sizeof($posts) > 0) { ?>
                     <ul class="list-unstyled">
                         <?php foreach($posts as $post) { ?>
@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="media-body">
                                     <h5 class="mt-0 mb-0"><?php echo $post['user_name'] ?></h5>
                                     <?php foreach(explode(',', $post['post_categories']) as $category) { ?>
-                                        <a href="#" class="badge badge-warning"><?php echo $category ?></a>
+                                        <span class="badge badge-dark"><?php echo $category ?></span>
                                     <?php } ?>
                                     <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?></small></div>
                                     <hr/>
@@ -61,18 +61,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <a href="<?php echo $post['user_map_link']?>" class="badge badge-link">goto map</a>
                                     </p>
                                     
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <?php if (!empty(trim($post['user_whatsapp']))) { ?>
-                                            <a href="https://wa.me/62<?php echo $post['user_whatsapp']?>" class="btn btn-success btn-sm">Whatsapp</a>
-                                        <? } ?>
-                                        <?php if (!empty(trim($post['user_facebook']))) { ?>
-                                            <a href="<?php echo $post['user_facebook']?>" class="btn btn-success btn-sm">Facebook</a>
-                                        <? } ?>
-                                        <a href="<?php echo "profile/show_phone_number?code=", base64_encode($post['user_id']) ?>" class="btn btn-success btn-sm">Phone Number</a>
-                                    </div>
+                                    <?php if (!empty(trim($post['user_whatsapp']))) { ?>
+                                        <a href="https://wa.me/62<?php echo $post['user_whatsapp']?>" class="btn btn-success btn-sm mt-1">Whatsapp</a>
+                                    <? } ?>
+                                    <?php if (!empty(trim($post['user_facebook']))) { ?>
+                                        <a href="<?php echo $post['user_facebook']?>" class="btn btn-success btn-sm mt-1">Facebook</a>
+                                    <? } ?>
+                                    <a href="<?php echo "profile/show_phone_number?code=", base64_encode($post['user_id']) ?>" class="btn btn-success btn-sm mt-1">Phone Number</a>
                                     
                                     <?php if ($post['user_id'] !== $curr_user_id) { ?>
-                                        <a href="<?php echo '/index.php/transaction_list/create_offer?pc=', $post['user_partner_code']?>" class="btn btn-success btn-sm">Offer</a>
+                                        <a href="<?php echo '/index.php/transaction_list/create_offer?pc=', $post['user_partner_code']?>" class="btn btn-success btn-sm mt-1">Offer</a>
                                     <?php } ?>
                                 </div>
                             </li>
