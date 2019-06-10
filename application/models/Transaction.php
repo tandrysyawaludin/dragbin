@@ -9,7 +9,10 @@ class Transaction extends CI_Model {
 	}
 	
 	function update($new_data, $id) {
-	    $this->db->update('transactions', $new_data, array('id' => $id));
+	    $this->db->set('updated_at', 'NOW()', FALSE);
+	    $this->db->set($new_data);
+	    $this->db->where('id', $id);
+	    $this->db->update('transactions');
 		return $this->db->affected_rows();
 	}
 

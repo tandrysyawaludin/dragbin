@@ -68,10 +68,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php echo "<span class='text-muted'>", isset($transaction->seller_name) ? "Seller Name: </span> {$transaction->seller_name}" : "Buyer Name: </span> {$transaction->buyer_name}" ?><br/>
                                 </p>
                                 
-                                <?php if (isset($transaction->seller_name) && $transaction->status === "offered" ) { ?>
+                                <?php if (isset($transaction->seller_name) && $transaction->status === "accepted" ) { ?>
                                     <form action="<?php echo site_url('payment_confirmation') ?>" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Accept & Pay</button>
+                                        <button type="submit" class="btn btn-success btn-sm">Pay</button>
+                                    </form>
+                                <?php } ?>
+                                
+                                <?php if (isset($transaction->buyer_name) && $transaction->status === "offered" ) { ?>
+                                    <form action="create_acceptance_offering" method="POST">
+                                        <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
+                                        <button type="submit" class="btn btn-success btn-sm">Accept</button>
                                     </form>
                                 <?php } ?>
                                 

@@ -8,8 +8,11 @@ class Post extends CI_Model{
 		return $this->db->insert_id();
 	}
 	
-	function update($new_data, $id) {
-		$this->db->update('posts', $new_data, array('user_id' => $id));
+	function update($new_data, $user_id) {
+	    $this->db->set('updated_at', 'NOW()', FALSE);
+	    $this->db->set($new_data);
+	    $this->db->where('user_id', $user_id);
+	    $this->db->update('posts');
 		return $this->db->affected_rows();
 	}
 

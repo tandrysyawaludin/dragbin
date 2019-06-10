@@ -70,6 +70,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=offered&tt=', $transaction_target ?>">
                             Offered
                         </a>
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=accepted&tt=', $transaction_target ?>">
+                            Accepted
+                        </a>
                         <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=paid&tt=', $transaction_target ?>">
                             Paid
                         </a>

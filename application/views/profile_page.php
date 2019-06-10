@@ -142,19 +142,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <label for="description" class="col-sm-2 col-form-label">Categories</label>
                                 <div class="col-sm-10">
                                     <div class="row">
-                                    <?php 
-                                    foreach(explode(',', $post['categories']) as $post_categories) { ?>
-                                        <div class="col-sm-3">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <input type="checkbox" aria-label="Checkbox for following text input" checked disabled>
+                                    <?php
+                                    if(sizeof($post['categories']) > 0) {
+                                        foreach(explode(',', $post['categories']) as $post_categories) { ?>
+                                            <div class="col-sm-3">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <input type="checkbox" aria-label="Checkbox for following text input" checked disabled>
+                                                        </div>
                                                     </div>
+                                                    <input class="form-control" value="<?php echo strtoupper($post_categories) ?>" disabled>
                                                 </div>
-                                                <input class="form-control" value="<?php echo strtoupper($post_categories) ?>" disabled>
                                             </div>
-                                        </div>
-                                    <?php } 
+                                        <?php } 
+                                    }
+                                    
                                     foreach($unchecked_categories as $unchecked_category) { ?>
                                         <div class="col-sm-3">
                                             <div class="input-group mb-3">

@@ -17,6 +17,7 @@ class Profile extends MY_Controller {
 	    $user = $this->show_user_profile();
         $post = $this->show_user_post();
         $categories = $this->show_post_categories();
+        
         $data = array(
             'user' => $user,
             'post' => $post,
@@ -25,16 +26,6 @@ class Profile extends MY_Controller {
         $this->load->view('profile_page', $data);
 	}
 	
-	function create_default_post($partner_code) {
-	    if(isset($partnert_code)) {
-            $data = array(
-                'user_id' => $this->session->user_id,
-            );
-            
-            $this->post->create($data);   
-	    }
-    }
-    
 	function show_user_profile() {
 	    $param = array('id' => $this->session->user_id);
 	    return $this->user->get_by($param);
@@ -86,7 +77,6 @@ class Profile extends MY_Controller {
         );
 		
 		if(!is_null($valid_data)) {
-		    $this->create_default_post($this->input->post('facebook'));
 		    $this->user->update($valid_data, $this->session->user_id);
     	    $param = array('id' => $this->session->user_id);
     	    $data = array('user' => $this->user->get_by($param));

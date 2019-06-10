@@ -19,8 +19,10 @@ class Access_token extends CI_Model{
 	}
 	
 	function deactive($user_id) {
-		$new_data = array("is_active"=> 0);
-		$this->db->where("user_id", $user_id);
-		$this->db->update("access_token", $new_data);
+	    $this->db->set('updated_at', 'NOW()', FALSE);
+	    $this->db->set('is_active', false);
+	    $this->db->where('user_id', $user_id);
+	    $this->db->update('access_token');
+		return $this->db->affected_rows();
 	}
 }

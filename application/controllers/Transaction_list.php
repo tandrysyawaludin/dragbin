@@ -84,6 +84,13 @@ class Transaction_List extends MY_Controller {
 	    $this->load->view('create_offer_page', $data);
 	}
 	
+	function create_acceptance_offering() {
+	    $updated_transaction = array('status' => 'accepted');
+	    $transaction_id = $this->input->post('transaction_id');
+	    $this->transaction->update($updated_transaction, $transaction_id);
+	    redirect('transaction_list/show_detail_transaction?id='.$transaction_id.'&tt=from_me');
+	}
+	
 	function post_new_offer() {
 	    $user_id = $this->user->verify_partner_code($this->input->post('partner_code'));
 	    
