@@ -39,6 +39,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 col-sm-12 mb-4">
+                
+                <form action="search_post" method="GET" class="mt-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search address" name="address" required minlength=5>
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+                        </div>
+                    </div>
+                    <small class="text-muted">min input 5 characters</small>
+                </form>
+
                 <?php if (sizeof($posts) > 0) { ?>
                     <ul class="list-unstyled">
                         <?php foreach($posts as $post) { ?>
@@ -79,14 +90,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php 
                 }
                 else {
-                    echo "No post available";
+                    echo "<div class='mt-4'>No post available</div>";
                 }
                 ?>
-                <?php if(sizeof($posts) > 0) { ?>
-                    <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block" role="button">See more</a>
-                <?php } else { ?>
-                    <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block" role="button">Go to previous</a>
-                <?php } ?>
+                <?php 
+                    if(sizeof($address) > 0) {
+                        if(sizeof($posts) > 0) { ?>
+                            <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">See more</a>
+                        <?php }
+                        else { ?>
+                            <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Go to previous</a>
+                        <?php }
+                    }
+                    else {
+                        if(sizeof($posts) > 0) { ?>
+                            <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">See more</a>
+                        <?php }
+                        else { ?>
+                            <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Go to previous</a>
+                        <?php }
+                    }
+                ?>
             </div>
         </div>
     </div>

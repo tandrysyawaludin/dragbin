@@ -33,8 +33,4 @@ class Home extends MY_Controller {
         );
 	    return $this->post->get_active_posts_order_by($param);
 	}
-	
-	function filter_posts_by_category() {
-	    return true;
-	}
 }
