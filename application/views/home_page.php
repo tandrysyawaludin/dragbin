@@ -57,18 +57,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <img src="<?php echo base_url(), "assets/images/{$post['user_photo']}" ?>" class="img-patner rounded mr-3" alt="img">
                                 <div class="media-body">
                                     <h5 class="mt-0 mb-0"><?php echo $post['user_name'] ?></h5>
-                                    <?php foreach(explode(',', $post['post_categories']) as $category) { ?>
-                                        <span class="badge badge-dark"><?php echo $category ?></span>
-                                    <?php } ?>
-                                    <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?></small></div>
-                                    <hr/>
+
+                                    <small class="text-muted">
+                                        <?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?> ·
+                                        <b><?php echo $post['post_type'] == "buy" ? "BELI" : "JUAL" ?></b>
+                                    </small>
                                     
                                     <p class="post-description">
-                                        <?php echo $post['post_description'] ?>
-                                    </p>
-                                    
-                                    <p>
-                                        <?php echo $post['user_address'] ?>
+                                        <span class="description-text">
+                                            <span class="text-muted">Kategori:</span> <?php echo $post['post_categories'] ?>
+                                        </span>
+                                        <span class="description-text">
+                                            <span class="text-muted">Deskripsi:</span> <?php echo $post['post_description'] ?>
+                                        </span>
+                                        <span class="description-text">
+                                            <span class="text-muted">Alamat:</span> <?php echo $post['user_address'] ?>
+                                        </span>
                                         <a href="<?php echo $post['user_map_link']?>" class="badge badge-link">goto map</a>
                                     </p>
                                     

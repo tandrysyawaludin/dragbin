@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 20, 2019 at 05:25 PM
+-- Generation Time: Jul 22, 2019 at 01:42 PM
 -- Server version: 10.2.25-MariaDB
 -- PHP Version: 7.2.7
 
@@ -50,7 +50,12 @@ INSERT INTO `access_token` (`id`, `token`, `user_id`, `user_agent`, `is_active`,
 (88, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Linux; Android 7.0; Moto C Plus Build/NRD90M.03.045) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 OPT/1.17.66', 1, '2019-06-10 12:41:27', '2019-06-10 12:41:27'),
 (89, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 1, '2019-06-10 14:56:14', '2019-06-10 14:56:14'),
 (90, 'KiFkdJG4bsXQSmpIqb8eWjp6ac6e+UjEcv0QGkEwg3nfyMAEKXn3oyCKSYwy632iuQbzaCPNGJyCxhM/TpmUQPUJVFLjCCC3rdPzicUvgsoYjKV/FsQ1cGqNFki+wp/A', 40, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 1, '2019-06-10 15:31:28', '2019-06-10 15:31:28'),
-(91, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 1, '2019-06-20 06:13:36', '2019-06-20 06:13:36');
+(91, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 1, '2019-06-20 06:13:36', '2019-06-20 06:13:36'),
+(92, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Linux; Android 7.0; Moto C Plus) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36', 1, '2019-06-22 07:49:23', '2019-06-22 07:49:23'),
+(93, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Linux; Android 7.0; Moto C Plus) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36', 1, '2019-06-23 06:57:52', '2019-06-23 06:57:52'),
+(94, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 1, '2019-06-25 11:37:37', '2019-06-25 11:37:37'),
+(95, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 1, '2019-07-05 06:24:24', '2019-07-05 06:24:24'),
+(96, 'KiFkdJG4bsXQSmpIqb8eWmV4pk2g2MwMqxJ8Js6m8tTfyMAEKXn3oyCKSYwy632ihuMS7Xx+g2EodIfejNKyHvUJVFLjCCC3rdPzicUvgspDb2ngTg7fZ6BKwEt3JGXr1eDSzQE3fDwRRlSmXicy3w==', 39, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 1, '2019-07-05 14:48:43', '2019-07-05 14:48:43');
 
 -- --------------------------------------------------------
 
@@ -112,6 +117,7 @@ CREATE TABLE `posts` (
   `categories` set('hdpe','ldpe','pet','pp','ps','vinyl','others') DEFAULT NULL,
   `description` varchar(700) NOT NULL,
   `count_view` int(11) NOT NULL DEFAULT 0,
+  `type` enum('sell','buy') NOT NULL DEFAULT 'buy',
   `user_id` int(11) NOT NULL DEFAULT 0,
   `is_active` tinyint(1) NOT NULL DEFAULT 0,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -122,9 +128,9 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `categories`, `description`, `count_view`, `user_id`, `is_active`, `updated_at`, `created_at`) VALUES
-(14, 'hdpe,ldpe,pet,pp,ps,vinyl,others', 'Butuh masing-masing kategori 100kg', 0, 39, 1, '2019-06-10 12:37:05', '2019-06-09 05:20:56'),
-(15, NULL, '', 0, 40, 0, '2019-06-10 12:38:06', '2019-06-10 12:38:06');
+INSERT INTO `posts` (`id`, `categories`, `description`, `count_view`, `type`, `user_id`, `is_active`, `updated_at`, `created_at`) VALUES
+(14, 'hdpe,ldpe,pet,pp,ps,vinyl,others', 'Butuh masing-masing kategori 100kg', 0, 'buy', 39, 1, '2019-06-10 12:37:05', '2019-06-09 05:20:56'),
+(15, NULL, '', 0, 'buy', 40, 0, '2019-06-10 12:38:06', '2019-06-10 12:38:06');
 
 -- --------------------------------------------------------
 
@@ -262,7 +268,7 @@ ALTER TABLE `user_rating`
 -- AUTO_INCREMENT for table `access_token`
 --
 ALTER TABLE `access_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `deliveries`
