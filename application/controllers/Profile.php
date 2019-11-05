@@ -130,6 +130,34 @@ class Profile extends MY_Controller {
         return "";
 	}
 	
+	function request_partner_via_email() {
+	    $message = "Akun [".$this->input->post('user_id').", ".$this->input->post('user_name')."] ingin mendaftar sebagai partner";
+        if($this->send_email("hi@dragbin.com", $this->input->post('email'), $message, "User Request", "Request to be Partner")) {
+            echo "success";
+            $this->send_email($this->input->post('email'), "hi@dragbin.com", $message, "[Copy] User Request", "[Copy] Request to be Partner");
+        }
+        else {
+            show_error($this->email->print_debugger());
+            // return false;
+        }
+	}
+	
+	function send_email($to, $from, $message, $header, $subject) {
+        $this->load->library("email");
+        $this->email->set_newline("\r\n");
+        $this->email->from($from, $header);
+        $this->email->to($to);
+        $this->email->subject($subject);
+        $this->email->message($message);
+        if($this->email->send()) {
+            return true;
+        }
+        else {
+            // show_error($this->email->print_debugger());
+            return false;
+        }
+    }
+	
 	private function check_params_update_user() {
 		$email = strtolower($this->input->post('email'));
 		$password = $this->input->post('password');

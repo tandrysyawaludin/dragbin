@@ -139,7 +139,7 @@ class Signup extends MY_Controller {
     }
     
     private function send_mail($user_email) {
-        $message = 'Please access this link to verify your email<br/><a href="https://dragbin.com/index.php/signup/verify_email?vt='.base64_encode($user_email).'">https://dragbin.com/index.php/signup/verify_email?vt='.base64_encode($user_email).'</a>';
+        $message = 'Please access this link to verify your email https://dragbin.com/index.php/signup/verify_email?vt='.base64_encode($user_email);
         $this->load->library("email");
         $this->email->set_newline("\r\n");
         $this->email->from("hi@dragbin.com", "Hi Dragbin");

@@ -20,7 +20,7 @@ class User extends CI_Model{
 	    $where = array(
 			'email' => $email,
 			'password' => sha1($password),
-			'email_verified' => true
+// 			'email_verified' => true
 		);
 		$data = $this->db->get_where('users', $where);
 		$data_result = array();

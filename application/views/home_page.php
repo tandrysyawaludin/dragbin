@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="dragbin is an application which help future of recycle">
     <meta name="author" content="tandry syawaludin">
@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
+	
+	<link rel="shortcut icon" href="<?php echo base_url(), "assets/images/favicon.jpg" ?>">
 </head>
 
 <body>

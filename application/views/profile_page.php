@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
+	
+	<link rel="shortcut icon" href="<?php echo base_url(), "assets/images/favicon.jpg" ?>">
 </head>
 
 <body>
@@ -183,7 +185,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         }
                         else {
                         ?>
-                            <p>You are not authorized as a Partner and have a Post, please contact me for more information at <b>hidragbin@gmail.com</b></p>
+                            <p>You are not authorized as a Partner and have a Post, please contact me for more information at <form action="<?php echo base_url()?>index.php/profile/request_partner_via_email" method="POST" class="form-inline">
+                                    <input type="hidden" name="user_email" value="<?php echo $user['email'] ?>">
+                                    <input type="hidden" name="user_name" value="<?php echo $user['name'] ?>">
+                                    <input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
+                                    <button type="submit" class="btn btn-warning">Request via Email</button>
+                                    &nbsp;or&nbsp;
+                                    <a href="https://wa.me/6288224706803?text=Akun%20[ID,%20Name]%20ingin%20mendaftar%20sebagai%20partner" class="btn btn-warning">Request via WhatsApp</a>
+                                </form>
+                            </p>
                         <?php
                         }
                         ?>

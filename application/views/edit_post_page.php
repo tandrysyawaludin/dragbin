@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
+	
+	<link rel="shortcut icon" href="<?php echo base_url(), "assets/images/favicon.jpg" ?>">
 </head>
 
 <body>
