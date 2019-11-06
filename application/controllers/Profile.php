@@ -157,6 +157,18 @@ class Profile extends MY_Controller {
             return false;
         }
     }
+    
+    function send_verification_email() {
+        $message = 'Please access this link to verify your email https://dragbin.com/index.php/signup/verify_email?vt='.base64_encode($this->input->post('user_email'));
+        $this->load->library("email");
+        $this->email->set_newline("\r\n");
+        $this->email->from("hi@dragbin.com", "Hi Dragbin");
+        $this->email->to($this->input->post('user_email'));
+        $this->email->subject("dragbin: Verify your email");
+        $this->email->message($message);
+        $this->email->send();
+        redirect('profile');
+    }
 	
 	private function check_params_update_user() {
 		$email = strtolower($this->input->post('email'));

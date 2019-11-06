@@ -79,7 +79,7 @@ class Signup extends MY_Controller {
 		$user_id = $this->user->create($data);
 		
 		if ($user_id > 0) {
-			$this->send_mail($data['email']);
+			$this->send_verification_email($data['email']);
 			$this->create_default_post($user_id);
 			
 			$data_session = array(
@@ -108,7 +108,7 @@ class Signup extends MY_Controller {
         $this->post->create($data);
     }
 	
-	private function send_mail_gmail($user_email) {
+	private function send_verification_email_gmail($user_email) {
         $config = Array(
             'protocol' => "smtp",
             'smtp_host' => "smtp.gmail.com",
@@ -138,7 +138,7 @@ class Signup extends MY_Controller {
         }
     }
     
-    private function send_mail($user_email) {
+    private function send_verification_email($user_email) {
         $message = 'Please access this link to verify your email https://dragbin.com/index.php/signup/verify_email?vt='.base64_encode($user_email);
         $this->load->library("email");
         $this->email->set_newline("\r\n");

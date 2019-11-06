@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label for="email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="email" value="<?php echo $user['email'] ?>" disabled>
-                                <small class="form-text text-muted"><?php echo $user['email_verified'] ? "email has been verified" : "email has not been verified" ?></small>
+                                <small class="form-text text-muted"><?php echo $user['email_verified'] ? "email has been verified" : "<form action='profile/send_verification_email' method='POST'><input type='hidden' name='user_email' value='".$user['email']."'>email has not been verified, <button type='submit' class='badge badge-light'>verify now</button></form>" ?></small>
                             </div>
                         </div>
                         
