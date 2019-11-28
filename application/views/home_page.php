@@ -25,16 +25,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.php/home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index.php/home">Beranda <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/profile">Profile</a>
+                    <a class="nav-link" href="/index.php/profile">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/transaction_list">Transaction</a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaksi</a>
                 </li>
             </ul>
-            <a href="/index.php/signin/revoke_auth_authentication" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
+            <a href="/index.php/signin/revoke_auth_authentication" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Keluar</a>
         </div>
     </nav>
     
@@ -42,26 +42,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-md-6 offset-md-3 col-sm-12 mb-4">
                 
-                <form action="search_post" method="GET" class="mt-4">
+                <form action="" method="GET" class="mt-4">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search address" name="address" required minlength=5>
+                        <input type="text" class="form-control" placeholder="Cari alamat" name="address" required minlength=5>
                         <div class="input-group-append">
-                            <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+                            <button class="btn btn-success" type="submit" id="button-addon2">Cari</button>
                         </div>
                     </div>
-                    <small class="text-muted">min input 5 characters</small>
+                    <small class="text-muted">min 5 karakter</small>
                 </form>
 
                 <?php if (sizeof($posts) > 0) { ?>
                     <ul class="list-unstyled">
                         <?php foreach($posts as $post) { ?>
                             <li class="media post-container mt-4">
-                                <img src="<?php echo base_url(), "assets/images/{$post['user_photo']}" ?>" class="img-patner rounded mr-3" alt="img">
+                                <img src="<?php echo base_url(), "user_img/{$post['user_photo']}" ?>" class="img-patner rounded mr-3" alt="img">
                                 <div class="media-body">
                                     <h5 class="mt-0 mb-0"><?php echo $post['user_name'] ?></h5>
 
                                     <small class="text-muted">
-                                        <?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?> ·
+                                        <?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?>
                                         <b><?php echo $post['post_type'] == "buy" ? "BELI" : "JUAL" ?></b>
                                     </small>
                                     
@@ -75,19 +75,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <span class="description-text">
                                             <span class="text-muted">Alamat:</span> <?php echo $post['user_address'] ?>
                                         </span>
-                                        <a href="<?php echo $post['user_map_link']?>" class="badge badge-link">goto map</a>
+                                        <a href="<?php echo $post['user_map_link']?>" class="btn-link">buka google map</a>
                                     </p>
                                     
                                     <?php if (!empty(trim($post['user_whatsapp']))) { ?>
                                         <a href="https://wa.me/62<?php echo $post['user_whatsapp']?>" class="btn btn-success btn-sm mt-1">Whatsapp</a>
                                     <? } ?>
-                                    <?php if (!empty(trim($post['user_facebook']))) { ?>
-                                        <a href="<?php echo $post['user_facebook']?>" class="btn btn-success btn-sm mt-1">Facebook</a>
-                                    <? } ?>
-                                    <a href="<?php echo "profile/show_phone_number?code=", base64_encode($post['user_id']) ?>" class="btn btn-success btn-sm mt-1">Phone Number</a>
+                                    <a href="<?php echo "profile/show_phone_number?code=", base64_encode($post['user_id']) ?>" class="btn btn-success btn-sm mt-1">Nomor Telepon</a>
                                     
                                     <?php if ($post['user_id'] !== $curr_user_id) { ?>
-                                        <a href="<?php echo '/index.php/transaction_list/create_offer?pc=', $post['user_partner_code']?>" class="btn btn-success btn-sm mt-1">Offer</a>
+                                        <a href="<?php echo '/index.php/transaction_list/create_offer?pc=', $post['user_partner_code']?>" class="btn btn-success btn-sm mt-1">Ajukan Penawaran</a>
                                     <?php } ?>
                                 </div>
                             </li>
@@ -102,18 +99,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php 
                     if(sizeof($address) > 0) {
                         if(sizeof($posts) > 0) { ?>
-                            <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">See more</a>
+                            <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">Selanjutnya</a>
                         <?php }
                         else { ?>
-                            <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Go to previous</a>
+                            <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Sebelumnya</a>
                         <?php }
                     }
                     else {
                         if(sizeof($posts) > 0) { ?>
-                            <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">See more</a>
+                            <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">Selanjutnya</a>
                         <?php }
                         else { ?>
-                            <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Go to previous</a>
+                            <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Sebelumnya</a>
                         <?php }
                     }
                 ?>

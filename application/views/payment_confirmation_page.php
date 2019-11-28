@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="dragbin is an application which help future of recycle">
+    <meta name="description" content="Konfirmasi pembayaran transaksi.">
     <meta name="author" content="tandry syawaludin">
-	<title>Payment Confirmation</title>
+	<title>Konfirmasi Pembayaran</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,16 +25,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/home">Home</a>
+                    <a class="nav-link" href="/index.php/home">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/profile">Profile</a>
+                    <a class="nav-link" href="/index.php/profile">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/index.php/transaction_list">Transaction <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="/index.php/transaction_list">Transaksi <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
+            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Keluar</a>
         </div>
     </nav>
     
@@ -45,10 +45,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- Profile Detail -->
                 <form class="media mt-4 post-container" action="payment_confirmation/create_payment_confirmation" method="POST" enctype='multipart/form-data'>
                     <div class="media-body">
-                        <h5 class="mt-0 mb-4">Payment Confirmation</h5>
+                        <h5 class="mt-0 mb-4">Konfirmasi Pembayaran</h5>
                         
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Payment for</label>
+                            <label class="col-sm-3 col-form-label">Pembayaran untuk</label>
                             <div class="col-sm-9">
                                 <a href="https://dragbin.com/index.php/transaction_list/show_detail_transaction?id=<?php echo $transaction_id ?>&tt=to_me">
                                     https://dragbin.com/index.php/transaction_list/show_detail_transaction?id=<?php echo $transaction_id ?>&tt=to_me
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         
                         <div class="form-group row">
-                            <label for="destination_account_number" class="col-sm-3 col-form-label">To Account Number</label>
+                            <label for="destination_account_number" class="col-sm-3 col-form-label">Rekening Tujuan</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="destination_account_number">
                                     <?php foreach ($destination_account_number as $key => $value) {
@@ -68,21 +68,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         
                         <div class="form-group row">
-                            <label for="source_account_number" class="col-sm-3 col-form-label">From Account Number</label>
+                            <label for="source_account_number" class="col-sm-3 col-form-label">Rekening Asal</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="source_account_number" name="source_account_number" />
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="total_payment" class="col-sm-3 col-form-label">Total Payment</label>
+                            <label for="total_payment" class="col-sm-3 col-form-label">Total Pembayaran</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="total_payment" name="total_payment" />
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="payment_slip" class="col-sm-3 col-form-label">Payment Slip</label>
+                            <label for="payment_slip" class="col-sm-3 col-form-label">Struk Pembayaran</label>
                             <div class="col-sm-9">
                                 <input type="file" class="form-control-file" id="payment_slip" name="payment_slip" />
                             </div>
@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="col-sm-9 offset-sm-3">
                                 <input type="hidden" name="transaction_id" value="<?php echo $transaction_id ?>" />
                                 <input type="hidden" name="status" value="paid" />
-                                <button type="submit" class="form-control btn btn-warning">Confirm</button>
+                                <button type="submit" class="form-control btn btn-warning">Konfirmasi</button>
                             </div>
                         </div>
                     </div>

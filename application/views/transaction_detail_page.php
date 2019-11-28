@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="dragbin is an application which help future of recycle">
+    <meta name="description" content="Rincian suatu transaksi milik anda di dragbin.">
     <meta name="author" content="tandry syawaludin">
-	<title>Transaction Detail</title>
+	<title>Rincian Transaksi</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,16 +25,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/home">Home</a>
+                    <a class="nav-link" href="/index.php/home">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/profile">Profile</a>
+                    <a class="nav-link" href="/index.php/profile">Profil</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.php/transaction_list">Transaction <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaksi <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
+            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Keluar</a>
         </div>
     </nav>
 
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link transaction-menu" href="/index.php/transaction_list">
-                            < Back
+                            < Kembali
                         </a>
                     </li>
                 </ul>
@@ -67,34 +67,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </p>
                                 <hr/>
                                 <p class="transaction-description">
-                                    <?php echo "<span class='text-muted'>", isset($transaction->seller_name) ? "Seller Name: </span> {$transaction->seller_name}" : "Buyer Name: </span> {$transaction->buyer_name}" ?><br/>
+                                    <?php echo "<span class='text-muted'>", isset($transaction->seller_name) ? "Penjual: </span> {$transaction->seller_name}" : "Pembeli: </span> {$transaction->buyer_name}" ?><br/>
                                 </p>
                                 
                                 <?php if (isset($transaction->seller_name) && $transaction->status === "accepted" ) { ?>
                                     <form action="<?php echo site_url('payment_confirmation') ?>" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Pay</button>
+                                        <button type="submit" class="btn btn-success btn-sm">Bayar</button>
                                     </form>
                                 <?php } ?>
                                 
                                 <?php if (isset($transaction->buyer_name) && $transaction->status === "offered" ) { ?>
                                     <form action="create_acceptance_offering" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                                        <button type="submit" class="btn btn-success btn-sm">Terima</button>
                                     </form>
                                 <?php } ?>
                                 
                                 <?php if (isset($transaction->buyer_name) && $transaction->status === "paid" ) { ?>
                                     <form action="<?php echo site_url('delivery_confirmation') ?>" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Confirm Delivery</button>
+                                        <button type="submit" class="btn btn-success btn-sm">Konfirmasi Pengantaran</button>
                                     </form>
                                 <?php } ?>
                                 
                                 <?php if (isset($transaction->buyer_name) && $transaction->status === "delivered" ) { ?>
                                     <form action="<?php echo site_url('delivery_confirmation'), '/show_delivery_detail' ?>" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">See Delivery Detail</button>
+                                        <button type="submit" class="btn btn-success btn-sm">Rincian Pengantaran</button>
                                     </form>
                                 <?php } ?>
                             </div>
@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php 
                 }
                 else {
-                    echo "No detail transaction available";
+                    echo "Tidak ada transaksi.";
                 }
                 ?>
             </div>

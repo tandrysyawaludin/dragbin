@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="dragbin is an application which help future of recycle">
+    <meta name="description" content="Daftar transaksi milik anda di dragbin.">
     <meta name="author" content="tandry syawaludin">
-	<title>Transaction List</title>
+	<title>Daftar Transaksi</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,16 +25,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/home">Home</a>
+                    <a class="nav-link" href="/index.php/home">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/profile">Profile</a>
+                    <a class="nav-link" href="/index.php/profile">Profil</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.php/transaction_list">Transaction <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaksi <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
+            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Keluar</a>
         </div>
     </nav>
 
@@ -45,12 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link transaction-menu <?php echo $transaction_target == 'to_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=to_me&ts=offered">
-                            To Me
+                            Ke Saya
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link transaction-menu <?php echo $transaction_target == 'from_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=from_me&ts=offered">
-                            From Me
+                            Dari Saya
                         </a>
                     </li>
                 </ul>
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         <div class="row mt-1">
             <div class="col-md-4 offset-md-3 col-sm-12 mb-4">
-                <a href="/index.php/transaction_list/create_offer" class="btn btn-success btn-block" role="button">Create Offer</a>
+                <a href="/index.php/transaction_list/create_offer" class="btn btn-success btn-block" role="button">Buat Penawaran</a>
             </div>
             
             <div class="col-md-2 col-sm-12 mb-4">
@@ -70,19 +70,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=offered&tt=', $transaction_target ?>">
-                            Offered
+                            Ditawarkan
                         </a>
                         <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=accepted&tt=', $transaction_target ?>">
-                            Accepted
+                            Diterima
                         </a>
                         <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=paid&tt=', $transaction_target ?>">
-                            Paid
+                            Dibayar
                         </a>
                         <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=delivered&tt=', $transaction_target ?>">
-                            Delivered
+                            Diantar
                         </a>
                         <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=received&tt=', $transaction_target ?>">
-                            Received
+                            Diterima
                         </a>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php echo strlen($transaction['description']) > 50 ? substr($transaction['description'],0,50)."..." : $transaction['description']; ?>
                                     </p>
                                     
-                                    <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>" class="btn btn-success btn-sm">See more</a>
+                                    <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>" class="btn btn-success btn-sm">Selanjutnya</a>
                                 </div>
                             </li>
                         <?php } ?>
@@ -114,13 +114,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php 
                 }
                 else {
-                    echo "No transaction available";
+                    echo "Tidak ada transaksi.";
                 }
                 ?>
                 <?php if(sizeof($transactions) > 0) { ?>
-                    <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block" role="button">See more</a>
+                    <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block" role="button">Lainnya</a>
                 <?php } else { ?>
-                    <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-4" role="button">Go to previous</a>
+                    <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-4" role="button">Sebelumnya</a>
                 <?php } ?>
             </div>
         </div>

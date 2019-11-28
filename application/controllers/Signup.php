@@ -56,7 +56,6 @@ class Signup extends MY_Controller {
 		$address = $this->input->post('address');
 		$map_link = $this->input->post('map_link');
 		$whatsapp = $this->input->post('whatsapp');
-		$facebook = $this->input->post('facebook');
 		
         $data = array(
             'email' => $email,
@@ -65,8 +64,7 @@ class Signup extends MY_Controller {
             'name' => $name,
             'address' => $address,
             'map_link' => $email,
-            'whatsapp' => $whatsapp,
-            'facebook' => $facebook
+            'whatsapp' => $whatsapp
         );
         
         if (isset($email) && isset($password) && isset($phone_number) && isset($name) && isset($address)) {

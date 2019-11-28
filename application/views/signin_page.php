@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="dragbin is an application which help future of recycle">
+        <meta name="description" content="Masuk ke dragbin dan cari peluang-peluang dari sampah.">
         <meta name="author" content="tandry syawaludin">
-        <title>Sign In</title>
+        <title>Masuk Dragbin</title>
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="<?php echo base_url()?>assets/styles/signin.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,18 +25,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">About</a>
+                        <a class="nav-link" href="/">Tentang</a>
                     </li>
                 </ul>
                 <a href="<?php echo base_url()?>index.php/signup">
-                    <button class="btn btn-warning my-2 my-sm-0" type="submit">Sign Up</button>
+                    <button class="btn btn-warning my-2 my-sm-0" type="submit">Daftar</button>
                 </a>
             </div>
         </nav>
 
         <div class="container">
             <form class="form-signin row" action="<?php echo base_url()?>index.php/signin/authenticate_user" method="post">
-                <div class="col-md-12"><h3>Sing In</h3></div>
+                <div class="col-md-12"><h3>Masuk Dragbin</h3></div>
                 <div class="col-md-12">
                     <?php if (isset($this->session->status)) { ?>
                     <div class="alert alert-<?php echo $this->session->status === "failed" ? "danger" : "success" ?>" role="alert">
@@ -45,15 +45,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php } ?>
                     
                     <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="user@dragbin.com" required autofocus>
                     </div>
                     
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="******" required>
                     </div>
-                    <button class="btn btn-lg btn-warning btn-block" type="submit">Sign In</button>
+                    <button class="btn btn-lg btn-warning btn-block" type="submit">Masuk</button>
                 </div>
             </form>
             

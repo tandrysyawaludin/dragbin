@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="dragbin is an application which help future of recycle">
+    <meta name="description" content="Nomor telepon">
     <meta name="author" content="tandry syawaludin">
-	<title>Home</title>
+	<title>Beranda</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,16 +25,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.php/home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index.php/home">Beranda <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/profile">Profile</a>
+                    <a class="nav-link" href="/index.php/profile">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/transaction_list">Transaction</a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaksi</a>
                 </li>
             </ul>
-            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
+            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Keluar</a>
         </div>
     </nav>
     

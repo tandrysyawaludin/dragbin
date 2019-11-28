@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="dragbin is an application which help future of recycle">
+        <meta name="description" content="Daftar di dragbin dan raih kesempatan dalam kontribusi kita terhadap bumi serta dapatkan keuntung dari sampah.">
         <meta name="author" content="tandry syawaludin">
-        <title>Sign Up</title>
+        <title>Daftar Dragbin</title>
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="<?php echo base_url()?>assets/styles/signin.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">About</a>
+                        <a class="nav-link" href="/">Tentang</a>
                     </li>
                 </ul>
                 <a href="<?php echo base_url()?>index.php/signin">
@@ -39,52 +39,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-md-12"><h3>Sing Up</h3></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="email">Email address *</label>
-                        <input name="email" type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="email">Email *</label>
+                        <input name="email" type="email" id="email" class="form-control" placeholder="user@dragbin.com" required autofocus>
                     </div>
                     
                     <div class="form-group">
                         <label for="password">Password *</label>
-                        <input name="password" type="password" id="password" class="form-control" placeholder="Password" required>
+                        <input name="password" type="password" id="password" class="form-control" placeholder="*****" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone_number">Phone Number *</label>
-                        <input name="phone_number" type="text" id="phone_number" class="form-control" placeholder="Phone Number" required>
+                        <label for="phone_number">Nomor Telepon *</label>
+                        <input name="phone_number" type="text" id="phone_number" class="form-control" placeholder="080808080808" required>
                     </div>
                 </div>
                 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input name="name" type="text" id="name" class="form-control" placeholder="Name" required>
+                        <label for="name">Nama Lengkap *</label>
+                        <input name="name" type="text" id="name" class="form-control" placeholder="Mr. Dragbin" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="whatsapp">Whatsapp</label>
-                        <input name="whatsapp" type="text" id="whatsapp" class="form-control" placeholder="Whatsapp">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="facebook">Facebook</label>
-                        <input name="facebook" type="text" id="facebook" class="form-control" placeholder="Facebook">
+                        <input name="whatsapp" type="text" id="whatsapp" class="form-control" placeholder="080808080808">
                     </div>
                 </div>
                 
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="address">Address *</label>
-                        <textarea name="address" type="text" id="address" class="form-control" placeholder="Address" required></textarea>
+                        <label for="address">Alamat *</label>
+                        <textarea name="address" type="text" id="address" class="form-control" placeholder="Jl. dragbin nomor 1" required></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="map_link">Map Link</label>
-                        <textarea name="map_link" type="text" id="map_link" class="form-control" placeholder="Map Link"></textarea>
+                        <label for="map_link">Tautan Google Map</label>
+                        <textarea name="map_link" type="text" id="map_link" class="form-control" placeholder="https://goo.gl/maps/uzgenk8K4Q7tihy78"></textarea>
                     </div>
                 </div>
                 
                 <div class="col-md-12">
-                    <button class="btn btn-lg btn-warning btn-block" type="submit">Sign Up</button>
+                    <button class="btn btn-lg btn-warning btn-block" type="submit">Daftar</button>
                 </div>
             </form>
             

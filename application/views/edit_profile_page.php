@@ -90,13 +90,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         
                         <div class="form-group row">
-                            <label for="facebook" class="col-sm-2 col-form-label">Facebook</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="facebook" value="<?php echo $user['facebook'] ?>" name="facebook">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
                             <label for="phone_number" class="col-sm-2 col-form-label">Phone</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="phone_number" value="<?php echo $user['phone_number'] ?>" name="phone_number">

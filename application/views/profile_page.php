@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="dragbin is an application which help future of recycle">
+    <meta name="description" content="<?php echo "Profile dari {$user['name']}" ?>">
     <meta name="author" content="tandry syawaludin">
-	<title>Profile</title>
+	<title>Profil</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,16 +25,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="home">Home</a>
+                    <a class="nav-link" href="home">Beranda</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="profile">Profile <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="profile">Profil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/transaction_list">Transaction</a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaksi</a>
                 </li>
             </ul>
-            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
+            <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Keluar</a>
         </div>
     </nav>
     
@@ -46,8 +46,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="media mt-4 post-container">
                     <div class="media-body">
                         <h5 class="mt-0 mb-4">Profile Detail <span class="badge badge-<?php echo $user['is_blocked'] ? "danger" : "success" ?>"><?php echo $user['is_blocked'] ? "Blocked" : "Actived" ?></span></h5>
+                        
                         <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-4 offset-md-4">
+                                <img class="img-thumbnail" src="<?php echo base_url(), "user_img/{$user['photo']}" ?>">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Nama Lengkap</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="name" value="<?php echo $user['name'] ?>" disabled>
                             </div>
@@ -57,19 +64,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label for="email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="email" value="<?php echo $user['email'] ?>" disabled>
-                                <small class="form-text text-muted"><?php echo $user['email_verified'] ? "email has been verified" : "<form action='profile/send_verification_email' method='POST'><input type='hidden' name='user_email' value='".$user['email']."'>email has not been verified, <button type='submit' class='badge badge-light'>verify now</button></form>" ?></small>
+                                <small class="form-text text-muted"><?php echo $user['email_verified'] ? "email has been verified" : "<form action='profile/send_verification_email' method='POST'><input type='hidden' name='user_email' value='".$user['email']."'>email has not been verified, <button type='submit' class='btn-link'>verify now</button></form>" ?></small>
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="address" class="col-sm-2 col-form-label">Address</label>
+                            <label for="address" class="col-sm-2 col-form-label">Alamat</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" id="address" disabled><?php echo $user['address'] ?></textarea>
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="map_link" class="col-sm-2 col-form-label">Map Link</label>
+                            <label for="map_link" class="col-sm-2 col-form-label">Tautan Google Map</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" id="map_link" disabled><?php echo $user['map_link'] ?></textarea>
                             </div>
@@ -83,21 +90,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         
                         <div class="form-group row">
-                            <label for="facebook" class="col-sm-2 col-form-label">Facebook</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="facebook" value="<?php echo $user['facebook'] ?>" disabled>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label for="phone_number" class="col-sm-2 col-form-label">Phone</label>
+                            <label for="phone_number" class="col-sm-2 col-form-label">Nomor Telepon</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="phone_number" value="<?php echo $user['phone_number'] ?>" disabled>
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="partner_code" class="col-sm-2 col-form-label">Partner Code</label>
+                            <label for="partner_code" class="col-sm-2 col-form-label">Kode Mitra</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="partner_code" value="<?php echo $user['partner_code'] ?>" disabled>
                                 <small class="form-text text-muted">Please contact us for changing <b>partner code</b></small>
@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         
                         <div class="form-group row">
-                            <label for="created_at" class="col-sm-2 col-form-label">Joined</label>
+                            <label for="created_at" class="col-sm-2 col-form-label">Bergabung Sejak</label>
                             <div class="col-sm-10">
                                 <input class="form-control" id="created_at" value="<?php echo date('m/d/Y H:i', strtotime($post['created_at'])) ?>" disabled>
                             </div>
@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         
                         <div class="form-group row">
                             <div class="col-sm-10 offset-sm-2">
-                                <a href="profile/edit_profile" class="form-control btn btn-warning">Edit Profile</a>
+                                <a href="profile/edit_profile" class="form-control btn btn-warning">Ubah Profil</a>
                             </div>
                         </div>
                     </div>
@@ -127,21 +127,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         if (isset($user['partner_code'])) { 
                         ?>
                             <div class="form-group row">
-                                <label for="count_view" class="col-sm-2 col-form-label">Views</label>
+                                <label for="count_view" class="col-sm-2 col-form-label">Dilihat</label>
                                 <div class="col-sm-10">
                                     <input readonly class="form-control-plaintext" id="count_view" value="<?php echo $post['count_view'] ?>">
                                 </div>
                             </div>
                             
                             <div class="form-group row">
-                                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                                <label for="description" class="col-sm-2 col-form-label">Deskripsi</label>
                                 <div class="col-sm-10">
                                     <textarea class="form-control" id="description" disabled><?php echo $post['description'] ?></textarea>
                                 </div>
                             </div>
                             
                             <div class="form-group row">
-                                <label for="description" class="col-sm-2 col-form-label">Categories</label>
+                                <label for="description" class="col-sm-2 col-form-label">Kategori</label>
                                 <div class="col-sm-10">
                                     <div class="row">
                                     <?php
@@ -178,21 +178,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             
                             <div class="form-group row">
                                 <div class="col-sm-10 offset-sm-2">
-                                    <a href="profile/edit_post" class="form-control btn btn-warning">Edit Post</a>
+                                    <a href="profile/edit_post" class="form-control btn btn-warning">Ubah Postingan</a>
                                 </div>
                             </div>
                         <?php
                         }
                         else {
                         ?>
-                            <p>You are not authorized as a Partner and have a Post, please contact me for more information at <form action="<?php echo base_url()?>index.php/profile/request_partner_via_email" method="POST" class="form-inline">
-                                    <input type="hidden" name="user_email" value="<?php echo $user['email'] ?>">
-                                    <input type="hidden" name="user_name" value="<?php echo $user['name'] ?>">
-                                    <input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
-                                    <button type="submit" class="btn btn-warning">Request via Email</button>
-                                    &nbsp;or&nbsp;
-                                    <a href="https://wa.me/6288224706803?text=Akun%20[ID,%20Name]%20ingin%20mendaftar%20sebagai%20partner" class="btn btn-warning">Request via WhatsApp</a>
-                                </form>
+                            <p>
+                                <?php echo $user['email_verified'] ? 
+                                    'You are not authorized as a Partner and have a Post, please contact me for more information at&nbsp;
+                                    <form action="'.base_url().'index.php/profile/request_partner_via_email" method="POST" class="form-inline">
+                                        <input type="hidden" name="user_email" value="'.$user['email'].'">
+                                        <input type="hidden" name="user_name" value="'.$user['name'].'">
+                                        <input type="hidden" name="user_id" value="'.$user['id'].'">
+                                        <button type="submit" class="btn btn-warning">Ajukan via Email</button>
+                                        &nbsp;or&nbsp;
+                                        <a href="https://wa.me/6288224706803?text=Akun%20["'.$user['id'].'",%20"'.$user['name'].'"]%20ingin%20mendaftar%20sebagai%20mitra" class="btn btn-warning">Ajukan via WhatsApp</a>
+                                    </form>' :
+                                    "<form action='profile/send_verification_email' method='POST'><input type='hidden' name='user_email' value='".$user['email']."'>Mohon verifikasi email sebelum pengajuan mitra, <button type='submit' class='btn-link'>verifikasi</button></form>"
+                                ?>
                             </p>
                         <?php
                         }

@@ -38,7 +38,6 @@ class Post extends CI_Model{
 	        users.address as user_address,
 	        users.map_link as user_map_link,
 	        users.whatsapp as user_whatsapp,
-	        users.facebook as user_facebook,
 	        users.phone_number as user_phone_number,
 	        users.photo as user_photo,
 	        users.partner_code as user_partner_code,
@@ -52,6 +51,7 @@ class Post extends CI_Model{
 	}
 	
 	function get_active_posts_by_address_order_by($params) {
+	    var_dump("models/Post.php", $params);
 	    $this->db->select('
 	        posts.categories as post_categories,
 	        posts.description as post_description,
@@ -62,7 +62,6 @@ class Post extends CI_Model{
 	        users.address as user_address,
 	        users.map_link as user_map_link,
 	        users.whatsapp as user_whatsapp,
-	        users.facebook as user_facebook,
 	        users.phone_number as user_phone_number,
 	        users.photo as user_photo,
 	        users.partner_code as user_partner_code,
