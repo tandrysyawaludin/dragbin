@@ -96,13 +96,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                         
-                        <div class="form-group row">
-                            <label for="partner_code" class="col-sm-2 col-form-label">Partner Code</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="partner_code" value="<?php echo $user['partner_code'] ?>" disabled>
-                                <small class="form-text text-muted">Please contact us for changing <b>partner code</b></small>
-                            </div>
-                        </div>
+                        <?php
+                            if (!empty($user['partner_code'])) { ?>
+                                <div class="form-group row">
+                                    <label for="partner_code" class="col-sm-2 col-form-label">Partner Code</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="partner_code" value="<?php echo $user['partner_code'] ?>" disabled>
+                                        <small class="form-text text-muted">Please contact us for changing <b>partner code</b></small>
+                                    </div>
+                                </div>
+                            <?php }
+                        ?>
                         
                         <div class="form-group row">
                             <div class="col-sm-10 offset-sm-2">

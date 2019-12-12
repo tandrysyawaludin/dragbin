@@ -29,14 +29,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
                 </ul>
                 <a href="<?php echo base_url()?>index.php/signin">
-                    <button class="btn btn-warning my-2 my-sm-0" type="submit">Sign In</button>
+                    <button class="btn btn-warning my-2 my-sm-0" type="submit">Masuk</button>
                 </a>
             </div>
         </nav>
         
         <div class="container">
             <form class="form-signin row" method="POST" action="<?php echo base_url()?>index.php/signup/create_user">
-                <div class="col-md-12"><h3>Sing Up</h3></div>
+                <div class="col-md-12"><h3>Daftar Dragbin</h3></div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="email">Email *</label>

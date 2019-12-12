@@ -43,9 +43,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-8 offset-md-2 col-sm-12">
                 
                 <!-- Profile Detail -->
-                <form class="media mt-4 post-container" action="save_updated_post" method="POST" enctype='multipart/form-data'>
+                <form class="media mt-4 post-container" action="save_updated_post" method="POST">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-4">Post</h5>
+                        <h5 class="mt-0 mb-4">Pengajuan</h5>
+                        
+                        <div class="form-group row">
+                            <label for="description" class="col-sm-2 col-form-label">Berat</label>
+                            <div class="input-group col-sm-10">
+                                <input class="form-control" name="weight" id="weight" type="number" value="<?php echo $post['weight'] ?>" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Kg</span>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="form-group row">
                             <label for="description" class="col-sm-2 col-form-label">Description</label>
@@ -101,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   
                         <div class="form-group row mt-4">
                             <div class="col-sm-10 offset-sm-2">
-                                <button type="submit" class="form-control btn btn-warning">Save</button>
+                                <button type="submit" class="form-control btn btn-warning">Simpan</button>
                             </div>
                         </div>
                     </div>

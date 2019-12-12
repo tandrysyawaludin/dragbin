@@ -15,8 +15,6 @@ class Profile extends MY_Controller {
 	
 	function index() {
 	    $user = $this->show_user_profile();
-        $post = $this->show_user_post();
-        $categories = $this->show_post_categories();
         
         $data = array(
             'user' => $user,
@@ -31,15 +29,6 @@ class Profile extends MY_Controller {
 	    return $this->user->get_by($param);
 	}
 	
-	function show_user_post() {
-	    $param = array('user_id' => $this->session->user_id);
-	    return $this->post->get_by($param);
-	}
-	
-	function show_post_categories() {
-	    return $this->post->get_categories();
-	}
-	
 	function show_phone_number() {
 	    $user_id = base64_decode($this->input->get('code', TRUE));
 	    $data = array('phone_number' => $this->user->get_phone_number($user_id));
@@ -50,17 +39,6 @@ class Profile extends MY_Controller {
 	    $param = array('id' => $this->session->user_id);
 	    $data = array('user' => $this->user->get_by($param));
 	    $this->load->view('edit_profile_page', $data);
-	}
-	
-	function edit_post() {
-	    $param = array('user_id' => $this->session->user_id);
-	    $categories = $this->show_post_categories();
-	    $post = $this->post->get_by($param);
-	    $data = array(
-	        'post' => $post,
-	        'unchecked_categories' => array_diff($categories, explode(',', $post['categories']))
-	    );
-	    $this->load->view('edit_post_page', $data);
 	}
 	
 	function save_updated_profile() {
@@ -94,6 +72,7 @@ class Profile extends MY_Controller {
 	
 	function save_updated_post() {
 		$data = array(
+		    'weight' => $this->input->post('weight'),
             'description' => $this->input->post('description'),
             'categories' => implode("," ,$this->input->post('categories')),
             'is_active' => $this->input->post('is_active')
@@ -112,7 +91,7 @@ class Profile extends MY_Controller {
 		}
 
         $this->session->set_userdata($data_session);
-        redirect('profile');
+        redirect('show_post');
 
 	}
 	

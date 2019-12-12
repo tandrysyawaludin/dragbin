@@ -31,16 +31,13 @@ class Post extends CI_Model{
 	    $this->db->select('
 	        posts.categories as post_categories,
 	        posts.description as post_description,
-	        posts.count_view as post_count_vew,
 	        posts.created_at as post_created_at,
-	        posts.type as post_type,
 	        users.name as user_name,
 	        users.address as user_address,
 	        users.map_link as user_map_link,
 	        users.whatsapp as user_whatsapp,
 	        users.phone_number as user_phone_number,
 	        users.photo as user_photo,
-	        users.partner_code as user_partner_code,
 	        users.id as user_id
 	    ');
         $this->db->join('users', 'users.id = posts.user_id');
@@ -51,27 +48,26 @@ class Post extends CI_Model{
 	}
 	
 	function get_active_posts_by_address_order_by($params) {
-	    var_dump("models/Post.php", $params);
+	   // var_dump("models/Post.php", $params);
 	    $this->db->select('
 	        posts.categories as post_categories,
 	        posts.description as post_description,
-	        posts.count_view as post_count_vew,
 	        posts.created_at as post_created_at,
-	        posts.type as post_type,
 	        users.name as user_name,
 	        users.address as user_address,
 	        users.map_link as user_map_link,
 	        users.whatsapp as user_whatsapp,
 	        users.phone_number as user_phone_number,
 	        users.photo as user_photo,
-	        users.partner_code as user_partner_code,
 	        users.id as user_id
 	    ');
         $this->db->join('users', 'users.id = posts.user_id');
         $this->db->where('is_active', TRUE);
-        $this->db->where('MATCH (address) AGAINST ("'.$params['address'].'")', NULL);
+        $this->db->where('MATCH (users.address) AGAINST ("'.$params['address'].'")', NULL);
         $this->db->order_by("posts.{$params['column']}", $params['sort']);
         $data = $this->db->get('posts', 10, $params['next_offset'])->result_array();
+        // echo $this->db->last_query();
+        var_dump($data);
 		return $data;
 	}
 }

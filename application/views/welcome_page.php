@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Dragbin adalah aplikasi yang membantu masa depan dari daur ulang sampah. Kalian dapan membuat bumi kembali berjaya lagi dan mengambil keuntungan dari sampah.">
     <meta name="author" content="tandry syawaludin">
-	<title>Welcome to Dragbin</title>
+	<title>Selamat datang di Dragbin</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="<?php echo base_url()?>assets/styles/welcome.css" rel="stylesheet" crossorigin="anonymous">
