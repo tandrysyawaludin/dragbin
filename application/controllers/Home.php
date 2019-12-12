@@ -42,7 +42,7 @@ class Home extends MY_Controller {
     	        "next_offset" => 10*$page,
     	        "address" => $address
             );
-            $this->post->get_active_posts_by_address_order_by($param);
+            return $this->post->get_active_posts_by_address_order_by($param);
         }
 	}
 }

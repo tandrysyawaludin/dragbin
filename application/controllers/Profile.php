@@ -41,6 +41,17 @@ class Profile extends MY_Controller {
 	    $this->load->view('edit_profile_page', $data);
 	}
 	
+	function edit_post() {	
+	    $param = array('user_id' => $this->session->user_id);	
+	    $categories = $this->post->get_categories();	
+	    $post = $this->post->get_by($param);	
+	    $data = array(	
+	        'post' => $post,	
+	        'unchecked_categories' => array_diff($categories, explode(',', $post['categories']))	
+	    );
+	    $this->load->view('edit_post_page', $data);
+	}
+	
 	function save_updated_profile() {
 	    $photo = $this->upload_photo($this, $email);
 		

@@ -62,7 +62,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                     <small class="text-muted">
                                         <?php echo date('m/d/Y H:i:s', strtotime($post['post_created_at'])) ?>
-                                        <b><?php echo $post['post_type'] == "buy" ? "BELI" : "JUAL" ?></b>
                                     </small>
                                     
                                     <p class="post-description">

@@ -44,9 +44,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 <!-- Profile Detail -->
                 <form class="media mt-4 post-container" action="save_updated_profile" method="POST" enctype='multipart/form-data'>
-                    <img src="<?php echo base_url(), "assets/images/{$user['photo']}" ?>" class="img-patner rounded mr-3" alt="img">
                     <div class="media-body">
                         <h5 class="mt-0 mb-4">Profile Detail</h5>
+                        
+                        <div class="form-group row">
+                            <div class="col-sm-4 offset-md-4">
+                                <img class="img-thumbnail" src="<?php echo base_url(), "user_img/{$user['photo']}" ?>">
+                            </div>
+                        </div>
+                        
                         <div class="form-group row">
                             <label for="photo" class="col-sm-2 col-form-label">Photo</label>
                             <div class="col-sm-10">

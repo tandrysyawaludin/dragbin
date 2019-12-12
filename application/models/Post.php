@@ -48,7 +48,6 @@ class Post extends CI_Model{
 	}
 	
 	function get_active_posts_by_address_order_by($params) {
-	   // var_dump("models/Post.php", $params);
 	    $this->db->select('
 	        posts.categories as post_categories,
 	        posts.description as post_description,
@@ -66,8 +65,6 @@ class Post extends CI_Model{
         $this->db->where('MATCH (users.address) AGAINST ("'.$params['address'].'")', NULL);
         $this->db->order_by("posts.{$params['column']}", $params['sort']);
         $data = $this->db->get('posts', 10, $params['next_offset'])->result_array();
-        // echo $this->db->last_query();
-        var_dump($data);
 		return $data;
 	}
 }
