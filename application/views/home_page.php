@@ -41,7 +41,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 col-sm-12 mb-4">
-                
                 <form action="" method="GET" class="mt-4">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Cari alamat" name="address" required minlength=5>
@@ -94,25 +93,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 else {
                     echo "<div class='mt-4'>No post available</div>";
                 }
-                ?>
-                <?php 
-                    if(sizeof($address) > 0) {
-                        if(sizeof($posts) > 0) { ?>
-                            <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">Selanjutnya</a>
-                        <?php }
-                        else { ?>
-                            <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Sebelumnya</a>
-                        <?php }
-                    }
-                    else {
-                        if(sizeof($posts) > 0) { ?>
-                            <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">Selanjutnya</a>
-                        <?php }
-                        else { ?>
-                            <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Sebelumnya</a>
-                        <?php }
-                    }
-                ?>
+                
+                if(sizeof($address) > 0) {
+                    if(sizeof($posts) > 0) { ?>
+                        <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">Selanjutnya</a>
+                    <?php }
+                    else { ?>
+                        <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Sebelumnya</a>
+                    <?php }
+                }
+                else {
+                    if(sizeof($posts) > 0) { ?>
+                        <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">Selanjutnya</a>
+                    <?php }
+                    else { ?>
+                        <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Sebelumnya</a>
+                    <?php }
+                } ?>
             </div>
         </div>
     </div>

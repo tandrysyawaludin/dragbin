@@ -29,6 +29,7 @@ class Signin extends MY_Controller {
 			$data_session = array(
 				'user_id' => $data["user_id"],
 				'user_name' => $data["user_name"],
+				'user_partner_code' => $data["user_partner_code"],
 				'message' => 'Signin Success',
 				'status' => 'success',
 			);

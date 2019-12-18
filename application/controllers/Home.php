@@ -14,16 +14,21 @@ class Home extends MY_Controller {
     }
     
 	function index() {
-	    $page = $this->input->get('page', TRUE);
-	    $address = $this->input->get('address', TRUE);
-	    $posts = $this->show_posts_order_by_updated_at($page, trim(urldecode($address)," "));
-	    $data = array(
-	        'curr_user_id' => $this->session->user_id,
-	        'posts' => $posts,
-	        'next_page' => $page+1,
-	        'current_page' => $page
-	    );
-	    $this->load->view('home_page', $data);	
+	    if (empty($this->session->user_partner_code)) {
+	        redirect('show_post');
+	    }
+	    else {
+    	    $page = $this->input->get('page', TRUE);
+    	    $address = $this->input->get('address', TRUE);
+    	    $posts = $this->show_posts_order_by_updated_at($page, trim(urldecode($address)," "));
+    	    $data = array(
+    	        'curr_user_id' => $this->session->user_id,
+    	        'posts' => $posts,
+    	        'next_page' => $page+1,
+    	        'current_page' => $page
+    	    );
+    	    $this->load->view('home_page', $data);	
+	    }
 	}
 	
 	function show_posts_order_by_updated_at($page, $address) {

@@ -29,6 +29,7 @@ class User extends CI_Model{
     		$data_result = array(
     		    'user_id' => $data->row()->id,
     		    'user_name' => $data->row()->name,
+    		    'user_partner_code' => $data->row()->partner_code
     	    );
 		}
 		
