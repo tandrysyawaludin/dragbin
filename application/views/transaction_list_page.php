@@ -58,31 +58,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         
         <div class="row mt-1">
-            <div class="col-md-4 offset-md-3 col-sm-12 mb-4">
-                <a href="/index.php/transaction_list/create_offer" class="btn btn-success btn-block" role="button">Buat Penawaran</a>
-            </div>
-            
-            <div class="col-md-2 col-sm-12 mb-4">
+            <div class="col-md-6 offset-md-3 col-sm-12 mb-4">
                 <div class="dropdown show">
                     <a class="btn btn-secondary dropdown-toggle btn-block" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Filter: <?php echo ucwords($transaction_status) ?>
+                        Filter
                     </a>
                     
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=offered&tt=', $transaction_target ?>">
-                            Ditawarkan
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=processed&tt=', $transaction_target ?>">
+                            Diproses
                         </a>
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=accepted&tt=', $transaction_target ?>">
-                            Diterima
-                        </a>
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=paid&tt=', $transaction_target ?>">
-                            Dibayar
-                        </a>
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=delivered&tt=', $transaction_target ?>">
-                            Diantar
-                        </a>
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=received&tt=', $transaction_target ?>">
-                            Diterima
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=completed&tt=', $transaction_target ?>">
+                            Selesai
                         </a>
                     </div>
                 </div>
@@ -106,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php echo strlen($transaction['description']) > 50 ? substr($transaction['description'],0,50)."..." : $transaction['description']; ?>
                                     </p>
                                     
-                                    <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>" class="btn btn-success btn-sm">Selanjutnya</a>
+                                    <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>" class="btn btn-success btn-sm">Selengkapnya</a>
                                 </div>
                             </li>
                         <?php } ?>
@@ -117,11 +104,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     echo "Tidak ada transaksi.";
                 }
                 ?>
-                <?php if(sizeof($transactions) > 0) { ?>
-                    <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block" role="button">Lainnya</a>
-                <?php } else { ?>
-                    <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-4" role="button">Sebelumnya</a>
-                <?php } ?>
+                <div class="mt-4">
+                    <a href="/index.php/transaction_list/filter_transaction?tt=<?php echo $transaction_target ?>&ts=<?php echo $transaction_status ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary" role="button">Sebelumnya</a>
+                    <a href="/index.php/transaction_list/filter_transaction?tt=<?php echo $transaction_target ?>&ts=<?php echo $transaction_status ?>&page=<?php echo $next_page ?>" class="btn btn-secondary float-right" role="button">Selanjutnya</a>
+                </div>
             </div>
         </div>
     </div>

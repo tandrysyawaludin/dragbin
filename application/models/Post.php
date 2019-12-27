@@ -41,7 +41,9 @@ class Post extends CI_Model{
 	        users.id as user_id
 	    ');
         $this->db->join('users', 'users.id = posts.user_id');
-        $this->db->where('is_active', TRUE);
+        $this->db->join('transactions', 'users.id = transactions.buyer_id');
+        $this->db->where('transactions.buyer_id !=', $this->session->user_id);
+        $this->db->where('posts.is_active', TRUE);
         $this->db->order_by("posts.{$params['column']}", $params['sort']);
         $data = $this->db->get('posts', 10, $params['next_offset'])->result_array();
 		return $data;
@@ -61,7 +63,9 @@ class Post extends CI_Model{
 	        users.id as user_id
 	    ');
         $this->db->join('users', 'users.id = posts.user_id');
-        $this->db->where('is_active', TRUE);
+        $this->db->join('transactions', 'users.id = transactions.buyer_id');
+        $this->db->where('transactions.buyer_id !=', $this->session->user_id);
+        $this->db->where('posts.is_active', TRUE);
         $this->db->where('MATCH (users.address) AGAINST ("'.$params['address'].'")', NULL);
         $this->db->order_by("posts.{$params['column']}", $params['sort']);
         $data = $this->db->get('posts', 10, $params['next_offset'])->result_array();

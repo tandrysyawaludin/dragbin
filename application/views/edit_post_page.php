@@ -47,9 +47,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="media-body">
                         <h5 class="mt-0 mb-4">Pengajuan</h5>
                         
-                        <div class="form-group row">
-                            <label for="description" class="col-sm-2 col-form-label">Berat</label>
-                            <div class="input-group col-sm-10">
+                        <div class="form-group">
+                            <label for="description" class="col-sm-12 col-form-label">Berat</label>
+                            <div class="input-group col-sm-12">
                                 <input class="form-control" name="weight" id="weight" type="number" value="<?php echo $post['weight'] ?>" />
                                 <div class="input-group-append">
                                     <span class="input-group-text">Kg</span>
@@ -57,16 +57,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                         
-                        <div class="form-group row">
-                            <label for="description" class="col-sm-2 col-form-label">Description</label>
-                            <div class="col-sm-10">
+                        <div class="form-group">
+                            <label for="description" class="col-sm-12 col-form-label">Description</label>
+                            <div class="col-sm-12">
                                 <textarea class="form-control" id="description" name="description"><?php echo $post['description'] ?></textarea>
                             </div>
                         </div>
                         
-                        <div class="form-group row">
-                            <label for="description" class="col-sm-2 col-form-label">Categories</label>
-                            <div class="col-sm-10">
+                        <div class="form-group">
+                            <label for="pickup_date" class="col-sm-12 col-form-label">Tanggal Pengambilan</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" name="pickup_date" id="pickup_date" required>
+                                    <?php
+                                    for ($x = 1; $x <= 7; $x++) {
+                                        $pickup_date=date('d M Y', strtotime(+$x." day"));
+                                        echo "<option value='$pickup_date'>$pickup_date</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pickup_time" class="col-sm-12 col-form-label">Waktu Pengambilan</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" name="pickup_time" id="pickup_time" required>
+                                    <?php
+                                    for ($x = 0; $x < 10; $x=$x+2) {
+                                        $pickup_time=sprintf('%02d:00 - %d:00', ($x+8), ($x+10)).' WIB';
+                                        echo "<option value='$pickup_time'>$pickup_time</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description" class="col-sm-12 col-form-label">Categories</label>
+                            <div class="col-sm-12">
                                 <div class="row">
                                 <?php 
                                 if(sizeof($post['categories']) > 0) {
@@ -100,17 +128,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                         
-                        <div class="form-group row">
-                            <div class="col-sm-2">Active</div>
-                            <div class="col-sm-10">
+                        <div class="form-group">
+                            <div class="col-sm-12">Active</div>
+                            <div class="col-sm-12">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="is_active" value="1" <?php echo $post['is_active'] ? "checked" : "" ?>>
                                 </div>
                             </div>
                         </div>
   
-                        <div class="form-group row mt-4">
-                            <div class="col-sm-10 offset-sm-2">
+                        <div class="form-group mt-5">
+                            <div class="col-sm-12">
                                 <button type="submit" class="form-control btn btn-warning">Simpan</button>
                             </div>
                         </div>

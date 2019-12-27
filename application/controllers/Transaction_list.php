@@ -16,7 +16,7 @@ class Transaction_List extends MY_Controller {
 	
 	function index() {
 	    $page = $this->input->get('page', TRUE);
-	    $transaction_status = 'offered';
+	    $transaction_status = 'processed';
 	    $transaction_target = 'to_me';
 	    $transactions = $this->show_transactions_by_status_and_order_by($transaction_target, $transaction_status, $page);
 	    $data = array(
@@ -54,7 +54,7 @@ class Transaction_List extends MY_Controller {
 	        "next_offset" => 10*$page
         );
         
-        if ($transaction_target == 'from_me') {
+        if ($transaction_target == 'to_me') {
             $param["seller_id"] = $this->session->user_id;
         }
         else {
@@ -67,7 +67,7 @@ class Transaction_List extends MY_Controller {
 	function show_detail_transaction() {
 	    $params['transaction_id'] = $this->input->get('id', TRUE);
 	    
-	    if ($this->input->get('tt', TRUE) == 'from_me') {
+	    if ($this->input->get('tt', TRUE) == 'to_me') {
             $params["seller_id"] = $this->session->user_id;
         }
         else {
@@ -79,8 +79,12 @@ class Transaction_List extends MY_Controller {
 	}
 	
 	function create_offer() {
-	    $partner_code = $this->input->get('pc', TRUE);
-	    $data = array('partner_code' => $partner_code);
+	    $seller_id = $this->input->get('si', TRUE);
+	    $seller_name = $this->input->get('sn', TRUE);
+	    $data = array(
+	        'seller_id' => base64_decode($seller_id),
+	        'seller_name' => base64_decode($seller_name)
+	    );
 	    $this->load->view('create_offer_page', $data);
 	}
 	
@@ -92,39 +96,26 @@ class Transaction_List extends MY_Controller {
 	}
 	
 	function post_new_offer() {
-	    $user_id = $this->user->verify_partner_code($this->input->post('partner_code'));
-	    
-	    if ($user_id > 0 && $user_id !== $this->session->user_id) {
-    	    $data = array(
-                'seller_id' => $user_id,
-                'total_pay' => $this->input->post('total_pay'),
-                'description' => $this->input->post('description'),
-                'buyer_id' => $this->session->user_id
+	    $data = array(
+            'seller_id' => $this->input->post('seller_id'),
+            'total_pay' => $this->input->post('total_pay'),
+            'description' => $this->input->post('description'),
+            'buyer_id' => $this->session->user_id
+        );
+        
+        $data_session = array(
+            'status' => 'failed',
+            'message' => 'Please check your input'
+        );
+        
+		if ($this->transaction->create($data) > 0) {
+		    $data_session = array(
+                'status' => 'success',
+                'message' => 'Offer has been created'
             );
-            
-            $data_session = array(
-                'status' => 'failed',
-                'message' => 'Please check your input'
-            );
-            
-    		if ($this->transaction->create($data) > 0) {
-    		    $data_session = array(
-                    'status' => 'success',
-                    'message' => 'Offer has been created'
-                );
-    		}
-    
-            $this->session->set_userdata($data_session);
-            redirect('transaction_list');
-	    }
-	    else {
-	        $data_session = array(
-                'status' => 'failed',
-                'message' => 'Partner Code is not be accessed'
-            );
-            
-            $this->session->set_userdata($data_session);
-            redirect('transaction_list');
-	    }
+		}
+
+        $this->session->set_userdata($data_session);
+        redirect('transaction_list');
 	}
 }

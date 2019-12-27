@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="dragbin is an application which help future of recycle">
     <meta name="author" content="tandry syawaludin">
-	<title>Create Transaction</title>
+	<title>Buat Transaksi</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -25,13 +25,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/home">Home</a>
+                    <a class="nav-link" href="/index.php/home">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/profile">Profile</a>
+                    <a class="nav-link" href="/index.php/profile">Profil</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.php/transaction_list">Transaction <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index.php/transaction_list">Transaksi <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
@@ -45,24 +45,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- Profile Detail -->
                 <form class="media mt-4 post-container" action="post_new_offer" method="POST" enctype='multipart/form-data'>
                     <div class="media-body">
-                        <h5 class="mt-0 mb-4">Create Transaction</h5>
+                        <h5 class="mt-0 mb-4">Buat Transaksi</h5>
                         
                         <div class="form-group row">
-                            <label for="partner_code" class="col-sm-4 col-form-label">Partner Code</label>
+                            <label for="user_name" class="col-sm-4 col-form-label">Nama</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="partner_code" value="<?php echo $partner_code ?>" type="text" name="partner_code" required>
+                                <input value="<?php echo $seller_id ?>" type="hidden" name="seller_id" required>
+                                <input class="form-control" id="user_name" value="<?php echo $seller_name ?>" type="text" name="user_name" required>
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="total_pay" class="col-sm-4 col-form-label">Total Pay</label>
+                            <label for="total_pay" class="col-sm-4 col-form-label">Jumlah Bayar</label>
                             <div class="col-sm-8">
                                 <input class="form-control" id="total_pay" type="number" name="total_pay" required>
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="description" class="col-sm-4 col-form-label">Description</label>
+                            <label for="description" class="col-sm-4 col-form-label">Deskripsi</label>
                             <div class="col-sm-8">
                                 <textarea class="form-control" id="description" name="description" required></textarea>
                             </div>
@@ -70,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         
                         <div class="form-group row">
                             <div class="col-sm-8 offset-sm-4">
-                                <button type="submit" class="form-control btn btn-warning">Save Offer</button>
+                                <button type="submit" class="form-control btn btn-warning">Kirim</button>
                             </div>
                         </div>
                     </div>

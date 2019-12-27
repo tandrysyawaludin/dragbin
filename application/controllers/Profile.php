@@ -86,7 +86,9 @@ class Profile extends MY_Controller {
 		    'weight' => $this->input->post('weight'),
             'description' => $this->input->post('description'),
             'categories' => implode("," ,$this->input->post('categories')),
-            'is_active' => $this->input->post('is_active')
+            'is_active' => $this->input->post('is_active'),
+            'pickup_date' => $this->input->post('pickup_date'),
+            'pickup_time' => $this->input->post('pickup_time')
         );
         
         $data_session = array(

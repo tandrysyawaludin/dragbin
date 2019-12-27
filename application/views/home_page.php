@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="dragbin is an application which help future of recycle">
     <meta name="author" content="tandry syawaludin">
-	<title>Home</title>
+	<title>Beranda</title>
 	
 	<link href="<?php echo base_url()?>assets/styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<link href="<?php echo base_url()?>assets/styles/home.css" rel="stylesheet" crossorigin="anonymous">
@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a href="<?php echo "profile/show_phone_number?code=", base64_encode($post['user_id']) ?>" class="btn btn-success btn-sm mt-1">Nomor Telepon</a>
                                     
                                     <?php if ($post['user_id'] !== $curr_user_id) { ?>
-                                        <a href="<?php echo '/index.php/transaction_list/create_offer?pc=', $post['user_partner_code']?>" class="btn btn-success btn-sm mt-1">Ajukan Penawaran</a>
+                                        <a href="<?php echo '/index.php/transaction_list/create_offer?si=', base64_encode($post['user_id']), '&sn=', base64_encode($post['user_name']) ?>" class="btn btn-success btn-sm mt-1">Ambil Penawaran</a>
                                     <?php } ?>
                                 </div>
                             </li>
@@ -94,21 +94,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     echo "<div class='mt-4'>No post available</div>";
                 }
                 
-                if(sizeof($address) > 0) {
-                    if(sizeof($posts) > 0) { ?>
-                        <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">Selanjutnya</a>
-                    <?php }
-                    else { ?>
-                        <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Sebelumnya</a>
-                    <?php }
+                if(sizeof($address) > 0) { ?>
+                    <div class="mt-4">
+                        <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary" role="button">Sebelumnya</a>
+                        <a href="/index.php/search_post?address=<?php echo $address ?>&page=<?php echo $next_page ?>" class="btn btn-secondary float-right" role="button">Selanjutnya</a>
+                    </div>
+                <?php
                 }
-                else {
-                    if(sizeof($posts) > 0) { ?>
-                        <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary btn-block mt-2" role="button">Selanjutnya</a>
-                    <?php }
-                    else { ?>
-                        <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary btn-block mt-2" role="button">Sebelumnya</a>
-                    <?php }
+                else { ?>
+                    <div class="mt-4">
+                        <a href="/index.php/home?page=<?php echo ($current_page-1) ?>" class="btn btn-secondary" role="button">Sebelumnya</a>
+                        <a href="/index.php/home?page=<?php echo $next_page ?>" class="btn btn-secondary float-right" role="button">Selanjutnya</a>
+                    </div>
+                <?php
                 } ?>
             </div>
         </div>
