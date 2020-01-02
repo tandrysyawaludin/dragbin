@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="dragbin is an application which help future of recycle">
@@ -76,13 +76,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <a href="<?php echo $post['user_map_link']?>" class="btn-link">buka google map</a>
                                     </p>
                                     
-                                    <?php if (!empty(trim($post['user_whatsapp']))) { ?>
-                                        <a href="https://wa.me/62<?php echo $post['user_whatsapp']?>" class="btn btn-success btn-sm mt-1">Whatsapp</a>
-                                    <? } ?>
                                     <a href="<?php echo "profile/show_phone_number?code=", base64_encode($post['user_id']) ?>" class="btn btn-success btn-sm mt-1">Nomor Telepon</a>
                                     
                                     <?php if ($post['user_id'] !== $curr_user_id) { ?>
-                                        <a href="<?php echo '/index.php/transaction_list/create_offer?si=', base64_encode($post['user_id']), '&sn=', base64_encode($post['user_name']) ?>" class="btn btn-success btn-sm mt-1">Ambil Penawaran</a>
+                                        <a href="<?php echo '/index.php/transaction_list/create_offer?pi=', base64_encode($post['post_id']), '&si=', base64_encode($post['user_id']), '&sn=', base64_encode($post['user_name']) ?>" class="btn btn-success btn-sm mt-1">Ambil Penawaran</a>
                                     <?php } ?>
                                 </div>
                             </li>

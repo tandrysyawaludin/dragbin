@@ -17,8 +17,17 @@ class Post extends CI_Model{
 	}
 
 	function get_by($param) {
-		$query = $this->db->get_where('posts', $param);
-		return $query->row_array();
+	    $this->db->select('transactions.status as status');
+        $this->db->join('transactions', 'posts.id = transactions.post_id');
+        $query = $this->db->get_where('posts', $param);
+		$data = $query->row_array();
+		
+		if (empty($data)) {
+            $query = $this->db->get_where('posts', $param);
+		    $data = $query->row_array(); 
+		}
+		
+		return $data;
 	}
 	
 	function get_categories() {
@@ -28,40 +37,49 @@ class Post extends CI_Model{
 	}
 	
 	function get_active_posts_order_by($params) {
-	    $this->db->select('
+	    $select_data = '
 	        posts.categories as post_categories,
+	        posts.id as post_id,
 	        posts.description as post_description,
 	        posts.created_at as post_created_at,
 	        users.name as user_name,
 	        users.address as user_address,
 	        users.map_link as user_map_link,
-	        users.whatsapp as user_whatsapp,
-	        users.phone_number as user_phone_number,
 	        users.photo as user_photo,
 	        users.id as user_id
-	    ');
+	    ';
+	    $this->db->select($select_data);
         $this->db->join('users', 'users.id = posts.user_id');
-        $this->db->join('transactions', 'users.id = transactions.buyer_id');
+        $this->db->join('transactions', 'users.id = transactions.buyer_id', 'right');
         $this->db->where('transactions.buyer_id !=', $this->session->user_id);
         $this->db->where('posts.is_active', TRUE);
         $this->db->order_by("posts.{$params['column']}", $params['sort']);
         $data = $this->db->get('posts', 10, $params['next_offset'])->result_array();
+		
+		if (empty($data)) {
+		    $this->db->select($select_data);
+            $this->db->join('users', 'users.id = posts.user_id');
+            $this->db->where('posts.is_active', TRUE);
+            $this->db->order_by("posts.{$params['column']}", $params['sort']);
+            $data = $this->db->get('posts', 10, $params['next_offset'])->result_array();
+		}
+		
 		return $data;
 	}
 	
 	function get_active_posts_by_address_order_by($params) {
-	    $this->db->select('
+	    $select_data = '
 	        posts.categories as post_categories,
+	        posts.id as post_id,
 	        posts.description as post_description,
 	        posts.created_at as post_created_at,
 	        users.name as user_name,
 	        users.address as user_address,
 	        users.map_link as user_map_link,
-	        users.whatsapp as user_whatsapp,
-	        users.phone_number as user_phone_number,
 	        users.photo as user_photo,
 	        users.id as user_id
-	    ');
+	    ';
+	    $this->db->select($select_data);
         $this->db->join('users', 'users.id = posts.user_id');
         $this->db->join('transactions', 'users.id = transactions.buyer_id');
         $this->db->where('transactions.buyer_id !=', $this->session->user_id);
@@ -69,6 +87,16 @@ class Post extends CI_Model{
         $this->db->where('MATCH (users.address) AGAINST ("'.$params['address'].'")', NULL);
         $this->db->order_by("posts.{$params['column']}", $params['sort']);
         $data = $this->db->get('posts', 10, $params['next_offset'])->result_array();
+		
+		if (empty($data)) {
+		    $this->db->select($select_data);
+            $this->db->join('users', 'users.id = posts.user_id');
+            $this->db->where('posts.is_active', TRUE);
+            $this->db->where('MATCH (users.address) AGAINST ("'.$params['address'].'")', NULL);
+            $this->db->order_by("posts.{$params['column']}", $params['sort']);
+            $data = $this->db->get('posts', 10, $params['next_offset'])->result_array();
+		}
+		
 		return $data;
 	}
 }

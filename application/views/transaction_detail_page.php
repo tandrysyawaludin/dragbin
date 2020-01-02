@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Rincian suatu transaksi milik anda di dragbin.">
     <meta name="author" content="tandry syawaludin">
@@ -59,7 +59,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li class="media post-container mb-4">
                             <div class="media-body">
                                 <h5 class="mt-0 mb-0"><?php echo $currency.number_format($transaction->total_pay) ?></h5>
-                                <span class="badge badge-dark"><?php echo $transaction->status ?></span>
+                                <span class="badge badge-dark">
+                                    <?php 
+                                    if ($transaction->status === "finding_partner") {
+                                        echo "Sedang mencari mitra";
+                                    }
+                                    else if ($transaction->status === "got_partner") {
+                                        echo "Mitra ditemukan";
+                                    }
+                                    else if ($transaction->status === "picking_up") {
+                                        echo "Sedang menjemput";
+                                    }
+                                    else if ($transaction->status === "completed") {
+                                        echo "Transaksi berhasil";
+                                    }
+                                    ?>
+                                </span>
                                 <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($transaction->updated_at)) ?></small></div>
                                 <hr/>
                                 <p class="transaction-description">
@@ -70,31 +85,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php echo "<span class='text-muted'>", isset($transaction->seller_name) ? "Penjual: </span> {$transaction->seller_name}" : "Pembeli: </span> {$transaction->buyer_name}" ?><br/>
                                 </p>
                                 
-                                <?php if (isset($transaction->seller_name) && $transaction->status === "accepted" ) { ?>
-                                    <form action="<?php echo site_url('payment_confirmation') ?>" method="POST">
+                                <?php if (isset($transaction->seller_name) && $transaction->status === "finding_partner" ) { ?>
+                                    <form action="update_status_transaction" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Bayar</button>
+                                        <input type="hidden" name="transaction_status" value="picking_up" />
+                                        <button type="submit" class="btn btn-success btn-sm">Menuju lokasi</button>
                                     </form>
                                 <?php } ?>
                                 
-                                <?php if (isset($transaction->buyer_name) && $transaction->status === "offered" ) { ?>
-                                    <form action="create_acceptance_offering" method="POST">
+                                <?php if (isset($transaction->seller_name) && $transaction->status === "picking_up" ) { ?>
+                                    <form action="update_status_transaction" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Terima</button>
-                                    </form>
-                                <?php } ?>
-                                
-                                <?php if (isset($transaction->buyer_name) && $transaction->status === "paid" ) { ?>
-                                    <form action="<?php echo site_url('delivery_confirmation') ?>" method="POST">
-                                        <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Konfirmasi Pengantaran</button>
-                                    </form>
-                                <?php } ?>
-                                
-                                <?php if (isset($transaction->buyer_name) && $transaction->status === "delivered" ) { ?>
-                                    <form action="<?php echo site_url('delivery_confirmation'), '/show_delivery_detail' ?>" method="POST">
-                                        <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
-                                        <button type="submit" class="btn btn-success btn-sm">Rincian Pengantaran</button>
+                                        <input type="hidden" name="transaction_status" value="completed" />
+                                        <button type="submit" class="btn btn-success btn-sm">Transaksi berhasil</button>
                                     </form>
                                 <?php } ?>
                             </div>

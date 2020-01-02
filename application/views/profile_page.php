@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="form-group row">
                             <label for="created_at" class="col-sm-2 col-form-label">Bergabung Sejak</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="created_at" value="<?php echo date('m/d/Y H:i', strtotime($post['created_at'])) ?>" disabled>
+                                <input class="form-control" id="created_at" value="<?php echo date('d M Y', strtotime($post['created_at'])) ?>" disabled>
                             </div>
                         </div>
                         

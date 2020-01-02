@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="dragbin is an application which help future of recycle">
     <meta name="author" content="tandry syawaludin">
@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="form-group row">
                             <label for="user_name" class="col-sm-4 col-form-label">Nama</label>
                             <div class="col-sm-8">
+                                <input value="<?php echo $post_id ?>" type="hidden" name="post_id" required>
                                 <input value="<?php echo $seller_id ?>" type="hidden" name="seller_id" required>
                                 <input class="form-control" id="user_name" value="<?php echo $seller_name ?>" type="text" name="user_name" required>
                             </div>

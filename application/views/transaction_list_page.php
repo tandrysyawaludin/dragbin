@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Daftar transaksi milik anda di dragbin.">
     <meta name="author" content="tandry syawaludin">
@@ -44,12 +44,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-4 offset-md-3 col-sm-12">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'to_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=to_me&ts=offered">
+                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'to_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=to_me&ts=got_partner">
                             Ke Saya
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'from_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=from_me&ts=offered">
+                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'from_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=from_me&ts=got_partner">
                             Dari Saya
                         </a>
                     </li>
@@ -65,11 +65,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </a>
                     
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=processed&tt=', $transaction_target ?>">
-                            Diproses
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=got_partner&tt=', $transaction_target ?>">
+                            Proses
+                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=picking_up&tt=', $transaction_target ?>">
+                            Penjemputan
                         </a>
                         <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=completed&tt=', $transaction_target ?>">
-                            Selesai
+                            Berhasil
                         </a>
                     </div>
                 </div>
@@ -93,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php echo strlen($transaction['description']) > 50 ? substr($transaction['description'],0,50)."..." : $transaction['description']; ?>
                                     </p>
                                     
-                                    <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>" class="btn btn-success btn-sm">Selengkapnya</a>
+                                    <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>">Selengkapnya</a>
                                 </div>
                             </li>
                         <?php } ?>

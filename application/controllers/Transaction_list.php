@@ -80,16 +80,18 @@ class Transaction_List extends MY_Controller {
 	
 	function create_offer() {
 	    $seller_id = $this->input->get('si', TRUE);
+	    $post_id = $this->input->get('pi', TRUE);
 	    $seller_name = $this->input->get('sn', TRUE);
 	    $data = array(
+	        'post_id' => base64_decode($post_id),
 	        'seller_id' => base64_decode($seller_id),
 	        'seller_name' => base64_decode($seller_name)
 	    );
 	    $this->load->view('create_offer_page', $data);
 	}
 	
-	function create_acceptance_offering() {
-	    $updated_transaction = array('status' => 'accepted');
+	function update_status_transaction() {
+	    $updated_transaction = array('status' => $this->input->post('transaction_status'));
 	    $transaction_id = $this->input->post('transaction_id');
 	    $this->transaction->update($updated_transaction, $transaction_id);
 	    redirect('transaction_list/show_detail_transaction?id='.$transaction_id.'&tt=from_me');
@@ -97,10 +99,12 @@ class Transaction_List extends MY_Controller {
 	
 	function post_new_offer() {
 	    $data = array(
+	        'post_id' => $this->input->post('post_id'),
             'seller_id' => $this->input->post('seller_id'),
             'total_pay' => $this->input->post('total_pay'),
             'description' => $this->input->post('description'),
-            'buyer_id' => $this->session->user_id
+            'buyer_id' => $this->session->user_id,
+            'status' => 'got_partner',
         );
         
         $data_session = array(
