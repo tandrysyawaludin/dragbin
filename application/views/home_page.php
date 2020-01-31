@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php 
                 }
                 else {
-                    echo "<div class='mt-4'>No post available</div>";
+                    echo "<div class='mt-4'>Tidak ada posting</div>";
                 }
                 
                 if(sizeof($address) > 0) { ?>

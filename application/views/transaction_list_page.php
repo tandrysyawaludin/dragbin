@@ -87,7 +87,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li class="media post-container mb-4">
                                 <div class="media-body">
                                     <h5 class="mt-0 mb-0"><?php echo $currency.number_format($transaction['total_pay']) ?></h5>
-                                    <span class="badge badge-dark"><?php echo $transaction['status'] ?></span>
+                                    <span class="badge badge-dark">
+                                        <?php 
+                                        if ($transaction['status'] === "finding_partner") {
+                                            echo "Sedang mencari mitra";
+                                        }
+                                        else if ($transaction['status'] === "got_partner") {
+                                            echo "Mitra ditemukan";
+                                        }
+                                        else if ($transaction['status'] === "picking_up") {
+                                            echo "Sedang menjemput";
+                                        }
+                                        else if ($transaction['status'] === "completed") {
+                                            echo "Transaksi berhasil";
+                                        }
+                                        ?>
+                                    </span>
                                     <div><small class="text-muted"><?php echo date('m/d/Y H:i:s', strtotime($transaction['updated_at'])) ?></small></div>
                                     <hr/>
                                     

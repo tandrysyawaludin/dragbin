@@ -16,7 +16,7 @@ class Transaction_List extends MY_Controller {
 	
 	function index() {
 	    $page = $this->input->get('page', TRUE);
-	    $transaction_status = 'processed';
+	    $transaction_status = 'got_partner';
 	    $transaction_target = 'to_me';
 	    $transactions = $this->show_transactions_by_status_and_order_by($transaction_target, $transaction_status, $page);
 	    $data = array(

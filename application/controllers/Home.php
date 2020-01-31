@@ -15,7 +15,7 @@ class Home extends MY_Controller {
     
 	function index() {
 	    if (empty($this->session->user_partner_code)) {
-	        redirect('show_post');
+	        redirect('user_post');
 	    }
 	    else {
     	    $page = $this->input->get('page', TRUE);

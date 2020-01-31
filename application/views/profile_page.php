@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="<?php echo "Profil dari {$user['name']}" ?>">
     <meta name="author" content="tandry syawaludin">
@@ -42,12 +42,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-md-8 offset-md-2 col-sm-12">
                 
-                <a href="profile/edit_post" class="mt-4 form-control btn btn-warning">Ajukan Penjualan</a>
+                <?php
+                if (empty($user["partner_code"])) {
+                    echo '<a href="profile/edit_post" class="mt-4 form-control btn btn-warning">Ajukan Penjualan</a>';
+                }
+                ?>
                 
                 <!-- Profile Detail -->
                 <div class="media mt-4 post-container">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-4">Profil <span class="badge badge-<?php echo $user['is_blocked'] ? "danger" : "success" ?>"><?php echo $user['is_blocked'] ? "Blocked" : "Actived" ?></span></h5>
+                        <h5 class="mt-0 mb-4">Profil <span class="badge badge-<?php echo $user['is_blocked'] ? "danger" : "success" ?>"><?php echo $user['is_blocked'] ? "Terblokir" : "Aktif" ?></span></h5>
                         
                         <div class="form-group row">
                             <div class="col-sm-4 offset-md-4">

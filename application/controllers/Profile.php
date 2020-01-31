@@ -21,6 +21,7 @@ class Profile extends MY_Controller {
             'post' => $post,
             'unchecked_categories' => array_diff($categories, explode(',', $post['categories']))
         );
+        
         $this->load->view('profile_page', $data);
 	}
 	
@@ -41,21 +42,10 @@ class Profile extends MY_Controller {
 	    $this->load->view('edit_profile_page', $data);
 	}
 	
-	function edit_post() {	
-	    $param = array('user_id' => $this->session->user_id);	
-	    $categories = $this->post->get_categories();	
-	    $post = $this->post->get_by($param);	
-	    $data = array(	
-	        'post' => $post,	
-	        'unchecked_categories' => array_diff($categories, explode(',', $post['categories']))	
-	    );
-	    $this->load->view('edit_post_page', $data);
-	}
-	
 	function save_updated_profile() {
 	    $photo = $this->upload_photo($this, $email);
 		
-		$valid_data = array(
+		$data = array(
             'email' => strtolower($this->input->post('email')),
             'phone_number' => $this->input->post('phone_number'),
             'name' => $this->input->post('name'),
@@ -65,61 +55,44 @@ class Profile extends MY_Controller {
             'photo' => $photo
         );
 		
-		if(!is_null($valid_data)) {
-		    $this->user->update($valid_data, $this->session->user_id);
+		if($photo !== 'failed') {
+		    $this->user->update($data, $this->session->user_id);
     	    $param = array('id' => $this->session->user_id);
     	    $data = array('user' => $this->user->get_by($param));
     	    $this->load->view('edit_profile_page', $data);
+    	    redirect('profile');
+		}
+		else {
+    		$data_session = array(
+                'status' => 'failed',
+                'message' => 'Lengkapi data yang penting'.($photo === 'failed' ? ' dan Perhatikan maks. ukuran foto 5MB' : '')
+            );
+            
+            $this->session->set_userdata($data_session);
+            redirect('profile/edit_profile');
 		}
 		
-		$data_session = array(
-            'status' => 'failed',
-            'message' => 'Please check your input'
-        );
-        $this->session->set_userdata($data_session);
-        redirect('profile');
 
 	}
 	
-	function save_updated_post() {
-		$data = array(
-		    'weight' => $this->input->post('weight'),
-            'description' => $this->input->post('description'),
-            'categories' => implode("," ,$this->input->post('categories')),
-            'is_active' => $this->input->post('is_active'),
-            'pickup_date' => $this->input->post('pickup_date'),
-            'pickup_time' => $this->input->post('pickup_time')
-        );
-        
-        $data_session = array(
-            'status' => 'failed',
-            'message' => 'Please check your input'
-        );
-        
-		if ($this->post->update($data, $this->session->user_id)) {
-		    $data_session = array(
-                'status' => 'success',
-                'message' => 'Post\'s data has been updated'
-            );
-		}
-
-        $this->session->set_userdata($data_session);
-        redirect('show_post');
-
-	}
 	
 	function upload_photo($photo, $email) {
         $config['upload_path'] = './user_img/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = 5000;
         $config['file_name'] = strstr($email, '@', true);
+        $config['encrypt_name'] = TRUE;
+        $config['create_thumb']= FALSE;
+        $config['maintain_ratio']= FALSE;
+        $config['image_library']='gd2';
+        $config['quality']= '10%';
         $this->load->library('upload', $config);
         
         if ($photo->upload->do_upload('photo')) {
             return $this->upload->data()["file_name"];
         }
         
-        return "";
+        return "failed";
 	}
 	
 	function request_partner_via_email() {

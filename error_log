@@ -34,3 +34,5 @@
 [27-Dec-2019 19:20:25 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction_list_page.php on line 129
 [27-Dec-2019 19:20:28 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction_list_page.php on line 129
 [27-Dec-2019 19:20:48 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction_list_page.php on line 129
+[07-Jan-2020 07:47:28 UTC] PHP Fatal error:  Cannot access empty property in /home/dragbin1/public_html/system/core/Model.php on line 73
+[07-Jan-2020 07:47:40 UTC] PHP Fatal error:  Cannot access empty property in /home/dragbin1/public_html/system/core/Model.php on line 73

@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="list-unstyled">
                         <li class="media post-container mb-4">
                             <div class="media-body">
-                                <h5 class="mt-0 mb-0"><?php echo $currency.number_format($transaction->total_pay) ?></h5>
+                                <h5 class="mt-0 mb-0">Rp<?php echo $currency.number_format($transaction->total_pay) ?></h5>
                                 <span class="badge badge-dark">
                                     <?php 
                                     if ($transaction->status === "finding_partner") {
@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php echo "<span class='text-muted'>", isset($transaction->seller_name) ? "Penjual: </span> {$transaction->seller_name}" : "Pembeli: </span> {$transaction->buyer_name}" ?><br/>
                                 </p>
                                 
-                                <?php if (isset($transaction->seller_name) && $transaction->status === "finding_partner" ) { ?>
+                                <?php if (isset($transaction->seller_name) && $transaction->status === "got_partner" ) { ?>
                                     <form action="update_status_transaction" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
                                         <input type="hidden" name="transaction_status" value="picking_up" />
@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </form>
                                 <?php } ?>
                                 
-                                <?php if (isset($transaction->seller_name) && $transaction->status === "picking_up" ) { ?>
+                                <?php if (isset($transaction->buyer_name) && $transaction->status === "picking_up" ) { ?>
                                     <form action="update_status_transaction" method="POST">
                                         <input type="hidden" name="transaction_id" value="<?php echo $transaction->id ?>" />
                                         <input type="hidden" name="transaction_status" value="completed" />
