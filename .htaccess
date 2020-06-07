@@ -9,3 +9,12 @@ RewriteCond %{HTTP:X-Forwarded-SSL} !on
 RewriteCond %{HTTP_HOST} ^dragbin\.com$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.dragbin\.com$
 RewriteRule ^/?$ "https\:\/\/www\.dragbin\.com\/" [R=301,L]
+# END
+
+# CUSTOMIZE ENVIRONMENT
+SetEnv BASE_URL https://192.168.64.2/dragbin/
+SetEnv DB_HOSTNAME localhost
+SetEnv DB_USERNAME root
+SetEnv DB_PASSWORD 
+SetEnv DB_NAME dragbin_production
+# END

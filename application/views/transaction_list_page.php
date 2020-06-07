@@ -25,13 +25,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/home">Beranda</a>
+                    <a class="nav-link" href="<?php echo base_url()?>index.php/home">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/profile">Profil</a>
+                    <a class="nav-link" href="<?php echo base_url()?>index.php/profile">Profil</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.php/transaction_list">Transaksi <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?php echo base_url()?>index.php/transaction-list">Transaksi <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Keluar</a>
@@ -44,12 +44,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-4 offset-md-3 col-sm-12">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'to_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=to_me&ts=got_partner">
+                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'to_me' ? 'active' : '' ?>" href="<?php echo base_url()?>index.php/transaction-list/filter-transaction?tt=to_me&ts=got_partner">
                             Ke Saya
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'from_me' ? 'active' : '' ?>" href="/index.php/transaction_list/filter_transaction?tt=from_me&ts=got_partner">
+                        <a class="nav-link transaction-menu <?php echo $transaction_target == 'from_me' ? 'active' : '' ?>" href="<?php echo base_url()?>index.php/transaction-list/filter-transaction?tt=from_me&ts=got_partner">
                             Dari Saya
                         </a>
                     </li>
@@ -65,12 +65,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </a>
                     
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=got_partner&tt=', $transaction_target ?>">
+                        <a class="dropdown-item" href="<?php echo base_url().'index.php/transaction-list/filter-transaction?ts=got_partner&tt=', $transaction_target ?>">
                             Proses
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=picking_up&tt=', $transaction_target ?>">
+                        <a class="dropdown-item" href="<?php echo base_url().'index.php/transaction-list/filter-transaction?ts=picking_up&tt=', $transaction_target ?>">
                             Penjemputan
                         </a>
-                        <a class="dropdown-item" href="<?php echo '/index.php/transaction_list/filter_transaction?ts=completed&tt=', $transaction_target ?>">
+                        <a class="dropdown-item" href="<?php echo base_url().'index.php/transaction-list/filter-transaction?ts=completed&tt=', $transaction_target ?>">
                             Berhasil
                         </a>
                     </div>
@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php echo strlen($transaction['description']) > 50 ? substr($transaction['description'],0,50)."..." : $transaction['description']; ?>
                                     </p>
                                     
-                                    <a href="<?php echo "/index.php/transaction_list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>">Selengkapnya</a>
+                                    <a href="<?php echo base_url()."index.php/transaction-list/show_detail_transaction?id=", $transaction['id'], "&tt=", $transaction_target ?>">Selengkapnya</a>
                                 </div>
                             </li>
                         <?php } ?>
@@ -122,8 +122,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 ?>
                 <div class="mt-4">
-                    <a href="/index.php/transaction_list/filter_transaction?tt=<?php echo $transaction_target ?>&ts=<?php echo $transaction_status ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary" role="button">Sebelumnya</a>
-                    <a href="/index.php/transaction_list/filter_transaction?tt=<?php echo $transaction_target ?>&ts=<?php echo $transaction_status ?>&page=<?php echo $next_page ?>" class="btn btn-secondary float-right" role="button">Selanjutnya</a>
+                    <a href="<?php echo base_url()?>index.php/transaction-list/filter-transaction?tt=<?php echo $transaction_target ?>&ts=<?php echo $transaction_status ?>&page=<?php echo ($current_page-1) ?>" class="btn btn-secondary" role="button">Sebelumnya</a>
+                    <a href="<?php echo base_url()?>index.php/transaction-list/filter-transaction?tt=<?php echo $transaction_target ?>&ts=<?php echo $transaction_status ?>&page=<?php echo $next_page ?>" class="btn btn-secondary float-right" role="button">Selanjutnya</a>
                 </div>
             </div>
         </div>

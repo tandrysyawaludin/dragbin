@@ -25,13 +25,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/home">Beranda</a>
+                    <a class="nav-link" href="<?php echo base_url()?>index.php/home">Beranda</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.php/profile">Profil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?php echo base_url()?>index.php/profile">Profil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/transaction_list">Transaksi</a>
+                    <a class="nav-link" href="<?php echo base_url()?>index.php/transaction-list">Transaksi</a>
                 </li>
             </ul>
             <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>

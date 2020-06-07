@@ -163,7 +163,7 @@ CREATE TABLE `users` (
   `name` varchar(50) NOT NULL,
   `address` text NOT NULL,
   `map_link` text DEFAULT 'NULL',
-  `photo` varchar(200) NOT NULL DEFAULT '''no-image.svg''',
+  `photo` varchar(200) NOT NULL DEFAULT '"no-image.svg"',
   `identity_card` varchar(200) DEFAULT NULL,
   `whatsapp` varchar(50) DEFAULT NULL,
   `email_verified` tinyint(1) NOT NULL DEFAULT 0,

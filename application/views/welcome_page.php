@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a class="nav-link active" href="#">Beranda</a>
         <a class="nav-link" href="<?php echo base_url()?>index.php/signin">Masuk</a>
         <a class="nav-link" href="<?php echo base_url()?>index.php/signup">Daftar</a>
+        <a class="nav-link" href="<?php echo base_url()?>index.php/help-center">Pusat Bantuan</a>
       </nav>
     </div>
   </header>
@@ -37,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <footer class="mastfoot mt-auto">
     <div class="inner">
-      <p>copyright 2019 | dragbin website</p>
+      <p>copyright 2020 | dragbin website</p>
     </div>
   </footer>
 </div>

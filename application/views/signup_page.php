@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="author" content="tandry syawaludin">
         <title>Daftar Dragbin</title>
         
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/styles/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="<?php echo base_url()?>assets/styles/signin.css" rel="stylesheet" crossorigin="anonymous">
         
         <link rel="shortcut icon" href="<?php echo base_url(), "assets/images/favicon.jpg" ?>">
@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <body>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">dragbin</a>
+            <a class="navbar-brand" href="<?php echo base_url() ?>">dragbin</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">Tentang</a>
+                        <a class="nav-link" href="<?php echo base_url() ?>">Welcome</a>
                     </li>
                 </ul>
                 <a href="<?php echo base_url()?>index.php/signin">

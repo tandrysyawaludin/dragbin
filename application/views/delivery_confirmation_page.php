@@ -25,13 +25,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/home">Home</a>
+                    <a class="nav-link" href="<?php echo base_url()?>index.php/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php/profile">Profile</a>
+                    <a class="nav-link" href="<?php echo base_url()?>index.php/profile">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/index.php/transaction_list">Transaction <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="<?php echo base_url()?>index.php/transaction-list">Transaction <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <a href="<?php echo base_url(), "index.php/signin/revoke_auth_authentication" ?>" class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Out</a>
@@ -43,15 +43,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-8 offset-md-2 col-sm-12">
                 
                 <!-- Profile Detail -->
-                <form class="media mt-4 post-container" action="delivery_confirmation/create_delivery_confirmation" method="POST" enctype='multipart/form-data'>
+                <form class="media mt-4 post-container" action="delivery-confirmation/create-delivery-confirmation" method="POST" enctype='multipart/form-data'>
                     <div class="media-body">
                         <h5 class="mt-0 mb-4">Delivery Confirmation</h5>
                         
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Delivery for</label>
                             <div class="col-sm-9">
-                                <a href="https://dragbin.com/index.php/transaction_list/show_detail_transaction?id=<?php echo $transaction_id ?>&tt=from_me">
-                                    https://dragbin.com/index.php/transaction_list/show_detail_transaction?id=<?php echo $transaction_id ?>&tt=from_me
+                                <a href="<?php echo base_url()?>index.php/transaction-list/show_detail_transaction?id=<?php echo $transaction_id ?>&tt=from_me">
+                                    https://dragbin.com/index.php/transaction-list/show_detail_transaction?id=<?php echo $transaction_id ?>&tt=from_me
                                 </a>
                             </div>
                         </div>

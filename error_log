@@ -24,15 +24,15 @@
 [12-Dec-2019 15:21:12 UTC] PHP Fatal error:  Call to undefined method Profile::show_post_categories() in /home/dragbin1/public_html/application/controllers/Profile.php on line 46
 [12-Dec-2019 15:21:14 UTC] PHP Fatal error:  Call to undefined method Profile::show_post_categories() in /home/dragbin1/public_html/application/controllers/Profile.php on line 46
 [12-Dec-2019 15:21:27 UTC] PHP Fatal error:  Call to undefined method Profile::show_post_categories() in /home/dragbin1/public_html/application/controllers/Profile.php on line 46
-[22-Dec-2019 15:32:35 UTC] PHP Fatal error:  Call to undefined method User::verify_partner_code() in /home/dragbin1/public_html/application/controllers/Transaction_list.php on line 99
+[22-Dec-2019 15:32:35 UTC] PHP Fatal error:  Call to undefined method User::verify_partner_code() in /home/dragbin1/public_html/application/controllers/transaction-list.php on line 99
 [22-Dec-2019 15:55:02 UTC] PHP Fatal error:  Call to undefined function getHours() in /home/dragbin1/public_html/application/views/create_offer_page.php on line 78
 [22-Dec-2019 15:55:10 UTC] PHP Fatal error:  Call to undefined function getHours() in /home/dragbin1/public_html/application/views/create_offer_page.php on line 78
 [22-Dec-2019 15:55:29 UTC] PHP Fatal error:  Call to undefined function getHours() in /home/dragbin1/public_html/application/views/create_offer_page.php on line 78
-[27-Dec-2019 18:39:33 UTC] PHP Fatal error:  Call to undefined method User::verify_partner_code() in /home/dragbin1/public_html/application/controllers/Transaction_list.php on line 99
-[27-Dec-2019 18:40:22 UTC] PHP Fatal error:  Call to undefined method User::verify_partner_code() in /home/dragbin1/public_html/application/controllers/Transaction_list.php on line 99
-[27-Dec-2019 18:41:53 UTC] PHP Fatal error:  Call to undefined method User::verify_partner_code() in /home/dragbin1/public_html/application/controllers/Transaction_list.php on line 99
-[27-Dec-2019 19:20:25 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction_list_page.php on line 129
-[27-Dec-2019 19:20:28 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction_list_page.php on line 129
-[27-Dec-2019 19:20:48 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction_list_page.php on line 129
+[27-Dec-2019 18:39:33 UTC] PHP Fatal error:  Call to undefined method User::verify_partner_code() in /home/dragbin1/public_html/application/controllers/transaction-list.php on line 99
+[27-Dec-2019 18:40:22 UTC] PHP Fatal error:  Call to undefined method User::verify_partner_code() in /home/dragbin1/public_html/application/controllers/transaction-list.php on line 99
+[27-Dec-2019 18:41:53 UTC] PHP Fatal error:  Call to undefined method User::verify_partner_code() in /home/dragbin1/public_html/application/controllers/transaction-list.php on line 99
+[27-Dec-2019 19:20:25 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction-list_page.php on line 129
+[27-Dec-2019 19:20:28 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction-list_page.php on line 129
+[27-Dec-2019 19:20:48 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/dragbin1/public_html/application/views/transaction-list_page.php on line 129
 [07-Jan-2020 07:47:28 UTC] PHP Fatal error:  Cannot access empty property in /home/dragbin1/public_html/system/core/Model.php on line 73
 [07-Jan-2020 07:47:40 UTC] PHP Fatal error:  Cannot access empty property in /home/dragbin1/public_html/system/core/Model.php on line 73
