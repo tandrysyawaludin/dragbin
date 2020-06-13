@@ -7,6 +7,7 @@ class Delivery_confirmation extends MY_Controller {
     parent::__construct();
     $this->load->model('delivery');
     $this->load->model('transaction');
+    $this->load->helper('clear_alert');
   }
   
   protected function middleware() {
@@ -14,6 +15,7 @@ class Delivery_confirmation extends MY_Controller {
   }
   
   function index() {
+    clear_alert();
     $data = array(
       'transaction_id' => $this->input->post('transaction_id')
     );

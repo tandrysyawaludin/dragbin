@@ -51,6 +51,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<form class="media mt-4 post-container" action="save_updated_profile" method="POST"
 					enctype='multipart/form-data'>
 					<div class="media-body">
+            <?php if (isset($this->session->status)) { ?>
+              <div class="alert alert-<?php echo $this->session->status === "failed" ? "danger" : "success" ?>" role="alert">
+                <?php echo $this->session->message ?>
+              </div>
+            <?php } ?>
+
 						<h5 class="mt-0 mb-4">Profile Detail</h5>
 
 						<div class="form-group row">

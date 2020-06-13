@@ -7,6 +7,7 @@ class Profile extends MY_Controller {
     parent::__construct();
     $this->load->model('user');
     $this->load->model('post');
+    $this->load->helper('clear_alert');
   }
   
   protected function middleware() {
@@ -14,6 +15,7 @@ class Profile extends MY_Controller {
   }
   
   function index() {
+    clear_alert();
     $user = $this->show_user_profile();
     
     $data = array(
@@ -70,9 +72,7 @@ class Profile extends MY_Controller {
       
       $this->session->set_userdata($data_session);
       redirect('profile/edit_profile');
-    }
-    
-    
+    } 
   }
   
   

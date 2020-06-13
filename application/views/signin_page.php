@@ -45,9 +45,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col-md-12">
 				<?php if (isset($this->session->status)) { ?>
-				<div class="alert alert-<?php echo $this->session->status === "failed" ? "danger" : "success" ?>" role="alert">
-					<?php echo $this->session->message ?>
-				</div>
+          <div class="alert alert-<?php echo $this->session->status === "failed" ? "danger" : "success" ?>" role="alert">
+            <?php echo $this->session->message ?>
+          </div>
 				<?php } ?>
 
 				<div class="form-group">
