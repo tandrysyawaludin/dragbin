@@ -14,6 +14,8 @@ class User_post extends MY_Controller {
   }
   
   function index() {
+    $this->session->unset_userdata('status');
+    $this->session->unset_userdata('message');
     $post = $this->show_user_post();
     $categories = $this->show_post_categories();
     

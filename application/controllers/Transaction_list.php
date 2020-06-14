@@ -15,6 +15,8 @@ class Transaction_List extends MY_Controller {
   }
   
   function index() {
+    $this->session->unset_userdata('status');
+    $this->session->unset_userdata('message');
     $page = $this->input->get('page', TRUE);
     $transaction_status = 'got_partner';
     $transaction_target = 'to_me';

@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="form-group row">
 							<div class="col-sm-4 offset-md-4">
 								<div class="img-thumbnail" alt="img"
-									style="background-image: url(<?php echo base_url("assets/images/".$post['user_photo']) ?>)">
+									style="background-image: url(<?php echo base_url("user_img/".$user['photo']) ?>)">
 								</div>
 							</div>
 						</div>

@@ -7,7 +7,6 @@ class Profile extends MY_Controller {
     parent::__construct();
     $this->load->model('user');
     $this->load->model('post');
-    $this->load->helper('clear_alert');
   }
   
   protected function middleware() {
@@ -15,7 +14,8 @@ class Profile extends MY_Controller {
   }
   
   function index() {
-    clear_alert();
+    $this->session->unset_userdata('status');
+    $this->session->unset_userdata('message');
     $user = $this->show_user_profile();
     
     $data = array(
@@ -91,6 +91,8 @@ class Profile extends MY_Controller {
     if ($photo->upload->do_upload('photo')) {
       return $this->upload->data()["file_name"];
     }
+
+    var_dump($this->upload->display_errors());
     
     return "failed";
   }

@@ -17,6 +17,8 @@ class Signup extends MY_Controller {
   }
   
   function index() {
+    $this->session->unset_userdata('status');
+    $this->session->unset_userdata('message');
     $this->load->view('signup_page');
   }
   

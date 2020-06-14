@@ -30,5 +30,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/tests/
 /tests/results/
 delivery_photo
+user_img
 payment_slip
 .error_log
